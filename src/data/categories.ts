@@ -179,7 +179,7 @@ export const categories: Record<Category["slug"], Category> = {
       "The things that cannot be bought, only arranged. The things you remember twenty years later — and tell only your closest friends.",
     intro:
       "A private after-hours tour of a great museum, conducted by its director. A vineyard lunch in a Tuscan cellar, prepared by a chef who only cooks for friends. An evening at a private observatory in the Atacama. The list is not a list.",
-    hero: U(ID.lifestyle, 2400),
+    hero: U("1566073771259-6a8506099945", 2400),
     pillars: [
       { title: "Private museum hours", body: "After-close tours of the world's great institutions, hosted by directors and curators." },
       { title: "Cultural audiences", body: "Conversations with artists, designers, writers and chefs — in their studios, ateliers and kitchens." },
@@ -190,7 +190,7 @@ export const categories: Record<Category["slug"], Category> = {
       { name: "Atacama Observatory Night", location: "San Pedro · Chile", spec: "Private dome · chef · astronomer", price: "from $42,000", image: U("1419242902214-272b3f66ee7a", 800) },
       { name: "Sahara Camp & Bivouac", location: "Erg Chebbi · Morocco", spec: "Private silk camp · falconry", price: "from $26,000 / night", image: U("1509316785289-025f5b846b35", 800) },
       { name: "Burgundy Cellar Audience", location: "Côte de Nuits · France", spec: "Domaine lunch · vertical tasting", price: "POA", image: U("1414235077428-338989a2e8c0", 800) },
-      { name: "Helicopter Glacier Picnic", location: "Mont Blanc · Chamonix", spec: "Private chef · guide · champagne", price: "from €18,000", image: U("1544551763-46a013bb70d5", 800) },
+      { name: "Helicopter Glacier Picnic", location: "Mont Blanc · Chamonix", spec: "Private chef · guide · champagne", price: "from €18,000", image: U("1605281317010-fe5ffe798166", 800) },
       { name: "Designer's Atelier Visit", location: "Paris · undisclosed", spec: "Private fitting · archives shown", price: "By introduction", image: U("1503376780353-7e6692767b70", 800) },
     ],
     faq: [
