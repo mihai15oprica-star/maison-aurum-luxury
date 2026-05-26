@@ -179,7 +179,7 @@ export const categories: Record<Category["slug"], Category> = {
       "The things that cannot be bought, only arranged. The things you remember twenty years later — and tell only your closest friends.",
     intro:
       "A private after-hours tour of a great museum, conducted by its director. A vineyard lunch in a Tuscan cellar, prepared by a chef who only cooks for friends. An evening at a private observatory in the Atacama. The list is not a list.",
-    hero: U("1566073771259-6a8506099945", 2400),
+    hero: U("1540555700478-4be289fbecef", 1920),
     pillars: [
       { title: "Private museum hours", body: "After-close tours of the world's great institutions, hosted by directors and curators." },
       { title: "Cultural audiences", body: "Conversations with artists, designers, writers and chefs — in their studios, ateliers and kitchens." },
