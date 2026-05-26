@@ -2,7 +2,6 @@
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import MagneticButton from "@/components/MagneticButton";
-import { RevealLines } from "@/components/Reveal";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -60,15 +59,9 @@ export default function Hero() {
 
         <div className="container-luxe flex-1 flex flex-col justify-center py-12">
           <div className="max-w-5xl">
-            <h1 className="display-1 text-balance text-ivory">
-              <RevealLines text="The world's most" delay={0.3} />
-              <br />
-              <span className="italic">
-                <RevealLines text="discreet" delay={0.5} />{" "}
-                <span className="gold-text not-italic">
-                  <RevealLines text="address." delay={0.7} />
-                </span>
-              </span>
+            <h1 className="font-serif text-[56px] md:text-[80px] lg:text-[120px] leading-none tracking-tight text-balance text-ivory">
+              <span className="block whitespace-nowrap">The world&apos;s most</span>
+              <span className="block italic">discreet</span>
             </h1>
             <motion.p
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
