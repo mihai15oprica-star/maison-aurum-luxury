@@ -13,7 +13,7 @@ const principles = [
 
 const team = [
   { name: "Alessandra Vitale", role: "Founder & Maître de Maison", years: "20 yrs of practice", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80" },
-  { name: "Lorenzo Cattaneo", role: "Director, Yachts & Aviation", years: "Ex-Edmiston", img: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1200&q=80" },
+  { name: "Lorenzo Cattaneo", role: "Director, Yachts & Aviation", years: "Ex-Edmiston", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80" },
   { name: "Camille Lefebvre", role: "Director, Villas & Estates", years: "Ex-Knight Frank Private", img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80" },
   { name: "Adrien Khoury", role: "Director, Tables & Cellars", years: "Ex-Le Cinq", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" },
 ];

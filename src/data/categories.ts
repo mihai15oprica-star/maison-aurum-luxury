@@ -21,14 +21,17 @@ export type Category = {
 const U = (id: string, w = 1600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80`;
 
 const ID = {
+  home: "1544551763-46a013bb70d5",
+  destinations: "1533105079780-92b9be482077",
   villa: "1613977257363-707ba9348227",
-  yacht: "1567899378494-47b22a2ae96a",
-  milan: "1516483638261-f4dbaf036963",
-  mykonos: "1570077188670-e3a8d69ac5ff",
-  stbarth: "1559494007-9f5847c49d94",
+  yacht: "1544551763-46a013bb70d5",
+  milan: "1520175480921-4edfa2983e0f",
+  mykonos: "1533105079780-92b9be482077",
+  stbarth: "1590523741831-ab7e8b8f9c7f",
   dubai: "1512453979798-5ea266f8880c",
   car: "1503376780353-7e6692767b70",
   dining: "1414235077428-338989a2e8c0",
+  club: "1566417713940-fe7c737a9ef2",
   lifestyle: "1540555700478-4be289fbecef",
 };
 
@@ -149,19 +152,19 @@ export const categories: Record<Category["slug"], Category> = {
       "Membership reciprocity, guaranteed entry and private tables at the season's most desired clubs — without the queue.",
     intro:
       "We hold founding or honorary memberships in ninety-six clubs and members' rooms. Where we cannot give you a key, we will introduce you to the door — and the table on the inside.",
-    hero: U(ID.lifestyle, 2400),
+    hero: U(ID.club, 2400),
     pillars: [
       { title: "Reciprocal memberships", body: "Direct access through our roster of ninety-six clubs across nineteen cities." },
       { title: "Guaranteed entry, never the queue", body: "Private entrance, your table waiting, your bottle already on ice." },
       { title: "Discreet exits", body: "When the night ends, the car is at the door no one else uses." },
     ],
     listings: [
-      { name: "The Garden Room", location: "London · Berkeley Square", spec: "Members' dining · top-floor lounge", price: "Reciprocal", image: U(ID.lifestyle) },
+      { name: "The Garden Room", location: "London · Berkeley Square", spec: "Members' dining · top-floor lounge", price: "Reciprocal", image: U(ID.club) },
       { name: "Casa Tua", location: "Miami · Aspen · Paris", spec: "Members' dining · upstairs lounge", price: "Reciprocal", image: U(ID.dining) },
       { name: "Scorpios", location: "Mykonos · Paraga", spec: "Front-row daybed · DJ booth view", price: "Guest list", image: U(ID.mykonos) },
       { name: "Twiga Beach Club", location: "Forte dei Marmi", spec: "Cabana · evening reservation", price: "Guest list", image: U(ID.stbarth) },
-      { name: "Soho House Greek Street", location: "London · Soho", spec: "Private room · roof terrace", price: "Reciprocal", image: U(ID.lifestyle) },
-      { name: "Billionaire Mayfair", location: "London", spec: "Private VIP table", price: "Guest list", image: U(ID.lifestyle) },
+      { name: "Soho House Greek Street", location: "London · Soho", spec: "Private room · roof terrace", price: "Reciprocal", image: U(ID.club) },
+      { name: "Billionaire Mayfair", location: "London", spec: "Private VIP table", price: "Guest list", image: U(ID.club) },
     ],
     faq: [
       { q: "Will you guarantee entry on a busy night?", a: "If we accept the booking, yes. The Maison's word at the door is our currency." },

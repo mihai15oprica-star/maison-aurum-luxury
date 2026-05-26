@@ -23,7 +23,7 @@ export default function DestinationsIndex() {
         eyebrow="— Forty-seven cities, three oceans"
         title="An atlas of the season."
         subtitle="A permanent presence in the destinations our members return to. Local ateliers, local relationships, local instinct."
-        image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80"
+        image="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"
       />
 
       <section className="relative py-32 md:py-48 bg-noir-900">

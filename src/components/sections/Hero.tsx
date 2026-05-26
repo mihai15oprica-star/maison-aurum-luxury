@@ -29,7 +29,7 @@ export default function Hero() {
           loop
           playsInline
           aria-hidden="true"
-          poster="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80"
+          poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source

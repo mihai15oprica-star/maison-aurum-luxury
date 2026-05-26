@@ -40,7 +40,7 @@ export const services = [
     title: "Yacht Charters",
     blurb: "Sailing and motor yachts from 30 to 130 metres, with itineraries tailored to the wind and your wishes.",
     icon: "◆",
-    cover: "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1600&q=80",
+    cover: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80",
   },
   {
     slug: "cars",
@@ -61,7 +61,7 @@ export const services = [
     title: "Private Clubs",
     blurb: "Guaranteed access and private tables at the season's most desired venues — without the velvet rope.",
     icon: "✶",
-    cover: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80",
+    cover: "https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=1600&q=80",
   },
   {
     slug: "experiences",
@@ -82,7 +82,7 @@ export const destinations = [
     tagline: "The capital of quiet luxury.",
     season: "Sept — Apr",
     coords: "45.4642° N, 9.1900° E",
-    cover: U("1516483638261-f4dbaf036963", 2400),
+    cover: U("1520175480921-4edfa2983e0f", 2400),
     intro:
       "Milan does not announce itself. It is the city of the boardroom and the salon, of Brera ateliers and unmarked doors on Via Manzoni. We open them.",
     highlights: [
@@ -91,7 +91,7 @@ export const destinations = [
       { title: "Salone del Mobile", body: "Access to the closed previews, the private dinners, and the after-hours at Nilufar Depot." },
     ],
     images: [
-      U("1516483638261-f4dbaf036963"),
+      U("1520175480921-4edfa2983e0f"),
       U("1540555700478-4be289fbecef"),
       U("1414235077428-338989a2e8c0"),
       U("1503376780353-7e6692767b70"),
@@ -104,7 +104,7 @@ export const destinations = [
     tagline: "Where the Aegean meets the velvet rope.",
     season: "May — Oct",
     coords: "37.4467° N, 25.3289° E",
-    cover: U("1570077188670-e3a8d69ac5ff", 2400),
+    cover: U("1533105079780-92b9be482077", 2400),
     intro:
       "The island sets a stage — clifftop villas, white marble, sun-bleached linens. We curate the season for you, from Nammos at noon to Scorpios at sundown.",
     highlights: [
@@ -113,9 +113,9 @@ export const destinations = [
       { title: "Private Cycladic Cruises", body: "70-metre motor yacht to Delos, Rhenia and the secret coves of Naxos. Chef and DJ aboard." },
     ],
     images: [
-      U("1570077188670-e3a8d69ac5ff"),
-      U("1559494007-9f5847c49d94"),
-      U("1567899378494-47b22a2ae96a"),
+      U("1533105079780-92b9be482077"),
+      U("1590523741831-ab7e8b8f9c7f"),
+      U("1544551763-46a013bb70d5"),
       U("1613977257363-707ba9348227"),
     ],
   },
@@ -126,7 +126,7 @@ export const destinations = [
     tagline: "The Caribbean, by invitation only.",
     season: "Nov — Apr",
     coords: "17.9000° N, 62.8333° W",
-    cover: U("1559494007-9f5847c49d94", 2400),
+    cover: U("1590523741831-ab7e8b8f9c7f", 2400),
     intro:
       "Eight square miles of perfect coastline, French restraint and quiet wealth. The villas are private. The yachts are anchored. The reservations were made last September.",
     highlights: [
@@ -135,8 +135,8 @@ export const destinations = [
       { title: "Le Ti, Le Toiny, Bonito", body: "Tables that vanish from the phone in November. Yours, every night you wish." },
     ],
     images: [
-      U("1559494007-9f5847c49d94"),
-      U("1567899378494-47b22a2ae96a"),
+      U("1590523741831-ab7e8b8f9c7f"),
+      U("1544551763-46a013bb70d5"),
       U("1613977257363-707ba9348227"),
       U("1414235077428-338989a2e8c0"),
     ],
@@ -180,7 +180,7 @@ export const destinations = [
     ],
     images: [
       U("1540555700478-4be289fbecef"),
-      U("1567899378494-47b22a2ae96a"),
+      U("1544551763-46a013bb70d5"),
       U("1503376780353-7e6692767b70"),
       U("1414235077428-338989a2e8c0"),
     ],
