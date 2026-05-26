@@ -64,15 +64,15 @@
   }
 
   .display-1 {
-    @apply font-serif text-5xl md:text-7xl lg:text-[clamp(4rem,9vw,9rem)] leading-[0.95] tracking-tight;
+    @apply font-serif text-4xl md:text-5xl lg:text-7xl leading-tight tracking-tight;
   }
 
   .display-2 {
-    @apply font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight;
+    @apply font-serif text-3xl md:text-5xl lg:text-6xl leading-tight tracking-tight;
   }
 
   .display-3 {
-    @apply font-serif text-3xl md:text-5xl leading-[1.05] tracking-tight;
+    @apply font-serif text-2xl md:text-4xl lg:text-5xl leading-tight tracking-tight;
   }
 
   .body-lg {
