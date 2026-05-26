@@ -1,5 +1,5 @@
 import PageHero from "@/components/PageHero";
-import Reveal, { RevealLines } from "@/components/Reveal";
+import Reveal from "@/components/Reveal";
 import StatsBand from "@/components/sections/StatsBand";
 import CTA from "@/components/sections/CTA";
 import Parallax from "@/components/Parallax";
@@ -36,9 +36,8 @@ export default function AboutPage() {
             <Reveal>
               <p className="eyebrow mb-6">— A short history</p>
               <h2 className="display-2 text-balance">
-                Founded in <span className="italic gold-text">MMXVI.</span>
-                <br />
-                Built every day since.
+                <span className="block whitespace-nowrap">Founded in <span className="italic gold-text">MMXVI.</span></span>
+                <span className="block whitespace-nowrap">Built every day since.</span>
               </h2>
             </Reveal>
           </div>
@@ -72,11 +71,8 @@ export default function AboutPage() {
           <Reveal>
             <p className="eyebrow mb-6">— The four principles</p>
             <h2 className="display-2 mb-20 text-balance max-w-4xl">
-              <RevealLines text="The work is invisible." />
-              <br />
-              <span className="italic gold-text">
-                <RevealLines text="The standards are not." delay={0.3} />
-              </span>
+              <span className="block whitespace-nowrap">The work is invisible.</span>
+              <span className="block whitespace-nowrap italic gold-text">The standards are not.</span>
             </h2>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">

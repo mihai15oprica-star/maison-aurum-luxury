@@ -1,5 +1,5 @@
 "use client";
-import Reveal, { RevealLines } from "@/components/Reveal";
+import Reveal from "@/components/Reveal";
 
 export default function Manifesto() {
   return (
@@ -14,15 +14,8 @@ export default function Manifesto() {
           </div>
           <div className="md:col-span-9">
             <h2 className="display-2 text-balance">
-              <RevealLines text="A concierge is not a service." />
-              <br />
-              <span className="text-ivory/40">
-                <RevealLines text="It is a relationship." delay={0.3} />
-              </span>
-              <br />
-              <span className="italic gold-text">
-                <RevealLines text="Built over years." delay={0.6} />
-              </span>
+              <span className="block whitespace-nowrap">A concierge is not a service.</span>
+              <span className="block whitespace-nowrap italic gold-text">Built over years of trust.</span>
             </h2>
             <Reveal delay={0.6} className="mt-12 grid md:grid-cols-2 gap-10 max-w-4xl">
               <p className="body-lg">
