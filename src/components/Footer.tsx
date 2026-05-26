@@ -62,7 +62,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="overflow-hidden border-t border-gold/10">
-        <div className="flex animate-marquee whitespace-nowrap py-6 text-[12vw] md:text-[10vw] font-serif italic text-gold/10 tracking-tight gap-12">
+        <div className="flex animate-marquee whitespace-nowrap py-6 text-[12vw] md:text-[10vw] font-serif italic text-gold tracking-tight gap-12">
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i}>Maison Aurum · Discretion · Service · Maison Aurum · Discretion · Service ·&nbsp;</span>
           ))}
