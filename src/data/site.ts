@@ -40,7 +40,7 @@ export const services = [
     title: "Yacht Charters",
     blurb: "Sailing and motor yachts from 30 to 130 metres, with itineraries tailored to the wind and your wishes.",
     icon: "◆",
-    cover: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&q=80",
+    cover: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1600&q=80",
   },
   {
     slug: "cars",
@@ -114,8 +114,8 @@ export const destinations = [
     ],
     images: [
       U("1533105079780-92b9be482077"),
-      U("1590523741831-ab7e8b8f9c7f"),
-      U("1544551763-46a013bb70d5"),
+      U("1548574505-5e239809ee19"),
+      U("1605281317010-fe5ffe798166"),
       U("1613977257363-707ba9348227"),
     ],
   },
@@ -126,7 +126,7 @@ export const destinations = [
     tagline: "The Caribbean, by invitation only.",
     season: "Nov — Apr",
     coords: "17.9000° N, 62.8333° W",
-    cover: U("1590523741831-ab7e8b8f9c7f", 2400),
+    cover: U("1548574505-5e239809ee19", 2400),
     intro:
       "Eight square miles of perfect coastline, French restraint and quiet wealth. The villas are private. The yachts are anchored. The reservations were made last September.",
     highlights: [
@@ -135,8 +135,8 @@ export const destinations = [
       { title: "Le Ti, Le Toiny, Bonito", body: "Tables that vanish from the phone in November. Yours, every night you wish." },
     ],
     images: [
-      U("1590523741831-ab7e8b8f9c7f"),
-      U("1544551763-46a013bb70d5"),
+      U("1548574505-5e239809ee19"),
+      U("1605281317010-fe5ffe798166"),
       U("1613977257363-707ba9348227"),
       U("1414235077428-338989a2e8c0"),
     ],
@@ -170,7 +170,7 @@ export const destinations = [
     tagline: "The carré d'or of the Riviera.",
     season: "Apr — Oct",
     coords: "43.7384° N, 7.4246° E",
-    cover: U("1540555700478-4be289fbecef", 2400),
+    cover: U("1494522855154-9297ac14b55f", 2400),
     intro:
       "Grand Prix week, the Yacht Show, the season at Monte-Carlo. Our quietest territory and the one we know best.",
     highlights: [
@@ -179,8 +179,8 @@ export const destinations = [
       { title: "Monaco Yacht Show", body: "Owner-only previews of the season's superyacht inventory." },
     ],
     images: [
-      U("1540555700478-4be289fbecef"),
-      U("1544551763-46a013bb70d5"),
+      U("1494522855154-9297ac14b55f"),
+      U("1605281317010-fe5ffe798166"),
       U("1503376780353-7e6692767b70"),
       U("1414235077428-338989a2e8c0"),
     ],

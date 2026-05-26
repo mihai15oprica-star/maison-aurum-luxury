@@ -21,13 +21,13 @@ export type Category = {
 const U = (id: string, w = 1600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80`;
 
 const ID = {
-  home: "1544551763-46a013bb70d5",
+  home: "1605281317010-fe5ffe798166",
   destinations: "1533105079780-92b9be482077",
   villa: "1613977257363-707ba9348227",
-  yacht: "1544551763-46a013bb70d5",
+  yacht: "1605281317010-fe5ffe798166",
   milan: "1520175480921-4edfa2983e0f",
   mykonos: "1533105079780-92b9be482077",
-  stbarth: "1590523741831-ab7e8b8f9c7f",
+  stbarth: "1548574505-5e239809ee19",
   dubai: "1512453979798-5ea266f8880c",
   car: "1503376780353-7e6692767b70",
   dining: "1414235077428-338989a2e8c0",

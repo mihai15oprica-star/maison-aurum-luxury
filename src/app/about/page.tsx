@@ -13,7 +13,7 @@ const principles = [
 
 const team = [
   { name: "Alessandra Vitale", role: "Founder & Maître de Maison", years: "20 yrs of practice", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80" },
-  { name: "Lorenzo Cattaneo", role: "Director, Yachts & Aviation", years: "Ex-Edmiston", img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=80" },
+  { name: "Lorenzo Cattaneo", role: "Director, Yachts & Aviation", years: "Ex-Edmiston", img: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1200&q=80" },
   { name: "Camille Lefebvre", role: "Director, Villas & Estates", years: "Ex-Knight Frank Private", img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80" },
   { name: "Adrien Khoury", role: "Director, Tables & Cellars", years: "Ex-Le Cinq", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" },
 ];
@@ -27,7 +27,7 @@ export default function AboutPage() {
         eyebrow="— The House"
         title="A maison, not a service."
         subtitle="Maison Aurum is a privately held concierge atelier headquartered in Monte-Carlo, with permanent ateliers in Milan, Paris, London, Dubai and St. Barth."
-        image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80"
+        image="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80"
       />
 
       <section className="relative py-32 md:py-48">
