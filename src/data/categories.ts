@@ -186,12 +186,12 @@ export const categories: Record<Category["slug"], Category> = {
       { title: "Once-only journeys", body: "Sahara, Antarctica, Galápagos — your route, our logistics, no other guests." },
     ],
     listings: [
-      { name: "Museum After-Hours", location: "Florence", spec: "Closed doors · private guide", price: "from €38,000", image: U(ID.lifestyle) },
-      { name: "Atacama Observatory Night", location: "San Pedro · Chile", spec: "Private dome · chef · astronomer", price: "from $42,000", image: U(ID.lifestyle) },
-      { name: "Sahara Camp & Bivouac", location: "Erg Chebbi · Morocco", spec: "Private silk camp · falconry", price: "from $26,000 / night", image: U(ID.lifestyle) },
-      { name: "Burgundy Cellar Audience", location: "Côte de Nuits · France", spec: "Domaine lunch · vertical tasting", price: "POA", image: U(ID.dining) },
-      { name: "Helicopter Glacier Picnic", location: "Mont Blanc · Chamonix", spec: "Private chef · guide · champagne", price: "from €18,000", image: U(ID.lifestyle) },
-      { name: "Designer's Atelier Visit", location: "Paris · undisclosed", spec: "Private fitting · archives shown", price: "By introduction", image: U(ID.lifestyle) },
+      { name: "Museum After-Hours", location: "Florence", spec: "Closed doors · private guide", price: "from €38,000", image: U("1566073771259-6a8506099945", 800) },
+      { name: "Atacama Observatory Night", location: "San Pedro · Chile", spec: "Private dome · chef · astronomer", price: "from $42,000", image: U("1419242902214-272b3f66ee7a", 800) },
+      { name: "Sahara Camp & Bivouac", location: "Erg Chebbi · Morocco", spec: "Private silk camp · falconry", price: "from $26,000 / night", image: U("1509316785289-025f5b846b35", 800) },
+      { name: "Burgundy Cellar Audience", location: "Côte de Nuits · France", spec: "Domaine lunch · vertical tasting", price: "POA", image: U("1414235077428-338989a2e8c0", 800) },
+      { name: "Helicopter Glacier Picnic", location: "Mont Blanc · Chamonix", spec: "Private chef · guide · champagne", price: "from €18,000", image: U("1544551763-46a013bb70d5", 800) },
+      { name: "Designer's Atelier Visit", location: "Paris · undisclosed", spec: "Private fitting · archives shown", price: "By introduction", image: U("1503376780353-7e6692767b70", 800) },
     ],
     faq: [
       { q: "Is the listing exhaustive?", a: "Never. It is a fraction. Tell us your imagined day, and we will build it." },
