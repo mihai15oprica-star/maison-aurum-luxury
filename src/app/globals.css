@@ -4,17 +4,18 @@
 
 @layer base {
   :root {
-    --noir: #0a0a0a;
+    --noir: #16130d;
     --gold: #c9a84c;
     --gold-deep: #8c6f26;
+    --gold-label: #7a5f1e;
     --gold-bright: #ffd700;
-    --ivory: #f5f0e8;
-    --cream: #f8f6f2;
-    --pearl: #e8e0d0;
+    --ivory: #fbfaf8;
+    --cream: #f4f0e8;
+    --pearl: #e3dccd;
   }
 
   html {
-    background: #ffffff;
+    background: var(--ivory);
     color: var(--noir);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,9 +23,9 @@
   }
 
   body {
-    background: #ffffff;
+    background: var(--ivory);
     color: var(--noir);
-    font-feature-settings: "ss01", "cv11";
+    font-feature-settings: "ss01", "cv11", "liga", "dlig";
     overflow-x: hidden;
   }
 
@@ -33,15 +34,16 @@
     color: var(--noir);
   }
 
+  /* warm-black focus ring: ≥3:1 on every light surface (a11y) */
   *:focus-visible {
-    outline: 2px solid var(--gold-deep);
-    outline-offset: 4px;
+    outline: 2px solid var(--noir);
+    outline-offset: 3px;
     border-radius: 2px;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display), "Playfair Display", serif;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   ::-webkit-scrollbar {
@@ -67,26 +69,43 @@
     @apply max-w-[680px];
   }
 
-  /* eyebrow / section label: gold-deep #8C6F26 for AA contrast on white/cream */
+  /* eyebrow / section label: gold-label #7A5F1E for AA (4.5:1) on ivory/cream/white */
   .eyebrow {
     @apply text-[11px] font-sans uppercase tracking-[0.3em];
-    color: var(--gold-deep);
+    color: var(--gold-label);
+  }
+
+  /* editorial section label: numeral + thin gold rule + tracked overline */
+  .section-label {
+    @apply inline-flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.3em];
+    color: var(--gold-label);
+  }
+  .section-label::before {
+    content: "";
+    width: 2.5rem;
+    height: 1px;
+    background: var(--gold);
   }
 
   .display-1 {
-    @apply font-serif text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.02] tracking-[-0.02em];
+    @apply font-serif text-[clamp(3rem,8vw,6.5rem)] leading-[0.98] tracking-[-0.03em];
   }
 
   .display-2 {
-    @apply font-serif text-3xl md:text-5xl lg:text-[3.5rem] leading-[1.05] tracking-[-0.02em];
+    @apply font-serif text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.025em];
   }
 
   .display-3 {
-    @apply font-serif text-2xl md:text-4xl lg:text-[2.5rem] leading-[1.1] tracking-[-0.015em];
+    @apply font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em];
   }
 
   .body-lg {
-    @apply font-sans text-[17px] md:text-[18px] leading-[1.8] text-noir/75;
+    @apply font-sans text-[17px] md:text-[18px] leading-[1.8] text-noir/70;
+  }
+
+  /* oversized decorative section numeral (always paired with a real heading) */
+  .section-num {
+    @apply font-serif italic leading-none text-gold/30 select-none;
   }
 
   .gold-text {
@@ -132,9 +151,9 @@
     @apply relative inline-block after:absolute after:left-0 after:bottom-[-4px] after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-gold after:transition-transform after:duration-500 hover:after:origin-left hover:after:scale-x-100;
   }
 
-  /* card: white, sharp 2px radius, subtle shadow. Hover = lift + deeper shadow + gold bottom border (two non-color cues). */
+  /* card: white, sharp 2px radius, warm shadow that reads on ivory. Hover = lift + deeper shadow + gold bottom border (two non-color cues). */
   .card-luxe {
-    @apply relative bg-white rounded-[2px] border border-pearl shadow-[0_2px_20px_rgba(0,0,0,0.06)] transition-all duration-500;
+    @apply relative bg-white rounded-[2px] border border-pearl shadow-[0_4px_24px_rgba(22,19,13,0.07)] transition-all duration-500;
   }
   .card-luxe::after {
     content: "";
@@ -150,12 +169,12 @@
   }
   @media (prefers-reduced-motion: no-preference) {
     .card-luxe {
-      @apply hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)];
+      @apply hover:-translate-y-1.5 hover:shadow-[0_24px_60px_rgba(22,19,13,0.14)];
     }
   }
   @media (prefers-reduced-motion: reduce) {
     .card-luxe {
-      @apply hover:shadow-[0_16px_48px_rgba(0,0,0,0.14)];
+      @apply hover:shadow-[0_24px_60px_rgba(22,19,13,0.16)];
     }
   }
   .card-luxe:hover::after,
@@ -167,10 +186,10 @@
   .hero-scrim {
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.1) 45%,
-      rgba(255, 255, 255, 0.82) 82%,
-      #ffffff 100%
+      rgba(251, 250, 248, 0) 0%,
+      rgba(251, 250, 248, 0.08) 42%,
+      rgba(251, 250, 248, 0.8) 80%,
+      var(--ivory) 100%
     );
   }
 }
@@ -195,7 +214,7 @@
   }
 
   .hero-text-shadow {
-    text-shadow: 0 2px 24px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 2px 24px rgba(251, 250, 248, 0.7), 0 1px 3px rgba(251, 250, 248, 0.5);
   }
 }
 
