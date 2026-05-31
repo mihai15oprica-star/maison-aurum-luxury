@@ -133,7 +133,7 @@
   }
 
   .btn-luxe {
-    @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 font-sans text-[11px] uppercase tracking-[0.3em] text-noir border border-noir/80 transition-all duration-500 hover:text-white hover:border-noir overflow-hidden;
+    @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-[4px] font-sans text-[11px] uppercase tracking-[0.3em] text-noir border border-noir/80 transition-all duration-500 hover:text-white hover:border-noir overflow-hidden;
   }
   .btn-luxe::before {
     content: "";
@@ -151,7 +151,7 @@
   }
 
   .btn-gold {
-    @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 font-sans text-[11px] uppercase tracking-[0.3em] text-noir bg-gold transition-all duration-500 hover:bg-gold-bright overflow-hidden;
+    @apply relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-[4px] font-sans text-[11px] uppercase tracking-[0.3em] text-noir bg-gold transition-all duration-500 hover:bg-gold-bright overflow-hidden;
   }
 
   .link-underline {
