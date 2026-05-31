@@ -26,7 +26,7 @@ export default function ServicesIndex() {
         image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80"
       />
 
-      <section className="relative py-32 md:py-48 bg-noir-900">
+      <section className="relative py-32 md:py-48 bg-cream">
         <div className="container-luxe">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((s, i) => (
@@ -34,24 +34,24 @@ export default function ServicesIndex() {
                 <TiltCard className="h-full">
                   <Link
                     href={`/${s.slug}`}
-                    className="group relative block h-[500px] overflow-hidden bg-noir-700 border border-gold/10 hover:border-gold/40 transition-colors duration-500"
+                    className="group relative block h-[500px] overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500"
                   >
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
                       style={{ backgroundImage: `url(${s.cover})` }}
                       aria-hidden="true"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
                     <div className="relative h-full flex flex-col justify-between p-10">
                       <div className="flex items-start justify-between">
                         <span className="text-gold/70 text-xs tracking-[0.4em]">N° 0{i + 1}</span>
                         <span className="text-gold text-3xl">{s.icon}</span>
                       </div>
                       <div>
-                        <h3 className="font-serif text-4xl text-ivory mb-3 group-hover:text-gold transition-colors duration-500">
+                        <h3 className="font-serif text-4xl text-noir mb-3 group-hover:text-gold transition-colors duration-500">
                           {s.title}
                         </h3>
-                        <p className="font-sans text-sm text-ivory/70 leading-relaxed max-w-sm">{s.blurb}</p>
+                        <p className="font-sans text-sm text-noir/70 leading-relaxed max-w-sm">{s.blurb}</p>
                         <span className="mt-6 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold">
                           Enter
                           <span className="block h-px w-8 bg-gold group-hover:w-14 transition-all duration-500" />
@@ -77,7 +77,7 @@ export default function ServicesIndex() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-14">
             {extras.map((x, i) => (
               <Reveal key={x.t} delay={i * 0.08}>
-                <div className="border-t border-gold/20 pt-6">
+                <div className="border-t border-pearl pt-6">
                   <h3 className="font-serif text-2xl mb-3">{x.t}</h3>
                   <p className="body-lg">{x.b}</p>
                 </div>

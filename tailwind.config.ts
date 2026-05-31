@@ -36,6 +36,9 @@ const config: Config = {
           200: "#E8DFCC",
           300: "#D4C7A8",
         },
+        cream: "#F8F6F2",
+        snow: "#FAFAFA",
+        pearl: "#E8E0D0",
       },
       fontFamily: {
         serif: ["var(--font-display)", "Playfair Display", "serif"],
@@ -78,6 +81,10 @@ const config: Config = {
           "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.85) 70%, #0a0a0a 100%)",
         "noir-vignette":
           "radial-gradient(ellipse at center, rgba(10,10,10,0) 0%, rgba(10,10,10,0.6) 70%, #0a0a0a 100%)",
+        "light-fade":
+          "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 70%, #FFFFFF 100%)",
+        "light-vignette":
+          "radial-gradient(ellipse at center, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 70%, rgba(255,255,255,0.85) 100%)",
       },
     },
   },

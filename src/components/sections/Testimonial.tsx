@@ -37,12 +37,12 @@ export default function Testimonial() {
             <Reveal key={i} delay={i * 0.15}>
               <figure className="relative">
                 <span aria-hidden className="absolute -top-12 -left-2 font-serif text-8xl text-gold/30 leading-none">&ldquo;</span>
-                <blockquote className="font-serif text-xl md:text-2xl leading-snug text-ivory/90 italic text-balance">
+                <blockquote className="font-serif text-xl md:text-2xl leading-snug text-noir/90 italic text-balance">
                   {q.body}
                 </blockquote>
-                <figcaption className="mt-8 pt-6 border-t border-gold/10">
+                <figcaption className="mt-8 pt-6 border-t border-pearl">
                   <p className="font-serif text-lg text-gold">{q.author}</p>
-                  <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-ivory/50 mt-1">{q.title}</p>
+                  <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir/50 mt-1">{q.title}</p>
                 </figcaption>
               </figure>
             </Reveal>

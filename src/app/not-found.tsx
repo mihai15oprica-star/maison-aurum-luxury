@@ -16,7 +16,7 @@ export default function NotFound() {
           <MagneticButton href="/" variant="gold">Return home</MagneticButton>
           <MagneticButton href="/contact">Write the House</MagneticButton>
         </div>
-        <p className="mt-12 font-sans text-xs text-ivory/30">
+        <p className="mt-12 font-sans text-xs text-noir/30">
           <Link href="/destinations" className="hover:text-gold">Or visit our atlas →</Link>
         </p>
       </div>

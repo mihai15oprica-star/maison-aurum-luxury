@@ -20,13 +20,13 @@ export default function CategoryPage({ c }: { c: Category }) {
           </div>
           <div className="md:col-span-7 md:col-start-6">
             <Reveal delay={0.15}>
-              <p className="font-serif text-3xl md:text-4xl leading-[1.2] text-ivory/95 text-balance">{c.intro}</p>
+              <p className="font-serif text-3xl md:text-4xl leading-[1.2] text-noir/95 text-balance">{c.intro}</p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 bg-noir-900">
+      <section className="relative py-24 md:py-32 bg-cream">
         <div className="container-luxe">
           <Reveal>
             <p className="eyebrow mb-6">— The standard</p>
@@ -37,7 +37,7 @@ export default function CategoryPage({ c }: { c: Category }) {
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {c.pillars.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.1}>
-                <div className="border-t border-gold/20 pt-8 h-full">
+                <div className="border-t border-pearl pt-8 h-full">
                   <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold">— No. 0{i + 1}</span>
                   <h3 className="font-serif text-3xl mt-5 mb-4">{p.title}</h3>
                   <p className="body-lg">{p.body}</p>
@@ -65,25 +65,25 @@ export default function CategoryPage({ c }: { c: Category }) {
             {c.listings.map((l, i) => (
               <Reveal key={l.name} delay={i * 0.08}>
                 <TiltCard className="h-full">
-                  <article className="group relative overflow-hidden bg-noir-700 border border-gold/10 hover:border-gold/40 transition-colors duration-500 h-full">
+                  <article className="group relative overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500 h-full">
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
                         style={{ backgroundImage: `url(${l.image})` }}
                         aria-hidden="true"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
                       <span className="absolute top-5 left-5 font-sans text-[10px] tracking-[0.4em] uppercase text-gold/90 bg-noir/60 backdrop-blur px-3 py-1.5">
                         N° 0{i + 1}
                       </span>
                     </div>
-                    <div className="p-6 md:p-7 border-t border-gold/10">
+                    <div className="p-6 md:p-7 border-t border-pearl">
                       <div className="flex items-baseline justify-between gap-3 mb-2">
-                        <h3 className="font-serif text-2xl text-ivory group-hover:text-gold transition-colors">{l.name}</h3>
+                        <h3 className="font-serif text-2xl text-noir group-hover:text-gold transition-colors">{l.name}</h3>
                         <span className="font-sans text-[10px] uppercase tracking-[0.3em] text-gold whitespace-nowrap">{l.price}</span>
                       </div>
-                      <p className="font-sans text-xs uppercase tracking-[0.3em] text-ivory/50">{l.location}</p>
-                      <p className="font-sans text-sm text-ivory/70 mt-3">{l.spec}</p>
+                      <p className="font-sans text-xs uppercase tracking-[0.3em] text-noir/50">{l.location}</p>
+                      <p className="font-sans text-sm text-noir/70 mt-3">{l.spec}</p>
                       <Link
                         href="/contact"
                         className="mt-5 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold link-underline"
@@ -100,7 +100,7 @@ export default function CategoryPage({ c }: { c: Category }) {
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 border-y border-gold/10 bg-noir-900">
+      <section className="relative py-24 md:py-32 border-y border-pearl bg-cream">
         <div className="container-luxe grid md:grid-cols-12 gap-12">
           <div className="md:col-span-4">
             <Reveal>

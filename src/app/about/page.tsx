@@ -61,7 +61,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="relative py-32 md:py-48 bg-noir-900 overflow-hidden">
+      <section className="relative py-32 md:py-48 bg-cream overflow-hidden">
         <Parallax speed={0.1} className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none flex items-center">
           <div className="font-serif italic text-[18vw] leading-none tracking-tight text-gold whitespace-nowrap select-none">
             principles
@@ -78,10 +78,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
             {principles.map((p, i) => (
               <Reveal key={p.n} delay={i * 0.1}>
-                <div className="border-t border-gold/20 pt-8">
+                <div className="border-t border-pearl pt-8">
                   <div className="flex items-baseline justify-between mb-6">
                     <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold">— No. {p.n}</span>
-                    <span className="font-serif italic text-ivory/30 text-2xl">{p.n}</span>
+                    <span className="font-serif italic text-noir/30 text-2xl">{p.n}</span>
                   </div>
                   <h3 className="font-serif text-4xl mb-5">{p.t}</h3>
                   <p className="body-lg max-w-md">{p.b}</p>
@@ -106,18 +106,18 @@ export default function AboutPage() {
             {team.map((m, i) => (
               <Reveal key={m.name} delay={i * 0.08}>
                 <figure className="group">
-                  <div className="relative overflow-hidden aspect-[4/5] bg-noir-700">
+                  <div className="relative overflow-hidden aspect-[4/5] bg-white">
                     <div
                       className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-[1.4s] group-hover:scale-105"
                       style={{ backgroundImage: `url(${m.img})` }}
                       aria-hidden="true"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-noir/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
                   </div>
                   <figcaption className="mt-5">
                     <h3 className="font-serif text-2xl group-hover:text-gold transition-colors">{m.name}</h3>
                     <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold/80 mt-1">{m.role}</p>
-                    <p className="font-sans text-xs text-ivory/50 mt-2">{m.years}</p>
+                    <p className="font-sans text-xs text-noir/50 mt-2">{m.years}</p>
                   </figcaption>
                 </figure>
               </Reveal>

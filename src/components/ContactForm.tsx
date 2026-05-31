@@ -68,11 +68,11 @@ export default function ContactForm() {
                   name={f.id}
                   required={f.required}
                   defaultValue=""
-                  className="w-full bg-transparent border-b border-gold/20 hover:border-gold/40 focus:border-gold pb-3 font-sans text-base text-ivory outline-none transition-colors appearance-none cursor-pointer"
+                  className="w-full bg-transparent border-b border-pearl hover:border-noir/40 focus:border-gold pb-3 font-sans text-base text-noir outline-none transition-colors appearance-none cursor-pointer"
                 >
                   <option value="" disabled className="bg-noir">— select —</option>
                   {f.options.map((o) => (
-                    <option key={o} value={o} className="bg-noir text-ivory">{o}</option>
+                    <option key={o} value={o} className="bg-noir text-noir">{o}</option>
                   ))}
                 </select>
               ) : f.textarea ? (
@@ -81,7 +81,7 @@ export default function ContactForm() {
                   name={f.id}
                   required={f.required}
                   rows={4}
-                  className="w-full bg-transparent border-b border-gold/20 hover:border-gold/40 focus:border-gold pb-3 font-sans text-base text-ivory placeholder:text-ivory/30 outline-none transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-pearl hover:border-noir/40 focus:border-gold pb-3 font-sans text-base text-noir placeholder:text-noir/30 outline-none transition-colors resize-none"
                   placeholder="A few sentences. Discretion is a given."
                 />
               ) : (
@@ -90,7 +90,7 @@ export default function ContactForm() {
                   name={f.id}
                   type={f.type || "text"}
                   required={f.required}
-                  className="w-full bg-transparent border-b border-gold/20 hover:border-gold/40 focus:border-gold pb-3 font-sans text-base text-ivory placeholder:text-ivory/30 outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-pearl hover:border-noir/40 focus:border-gold pb-3 font-sans text-base text-noir placeholder:text-noir/30 outline-none transition-colors"
                   placeholder=""
                   autoComplete={f.id === "email" ? "email" : f.id === "phone" ? "tel" : f.id === "name" ? "name" : "off"}
                 />
@@ -98,7 +98,7 @@ export default function ContactForm() {
             </div>
           ))}
 
-          <p className="font-sans text-xs text-ivory/40 leading-relaxed pt-2">
+          <p className="font-sans text-xs text-noir/40 leading-relaxed pt-2">
             By writing, you understand that membership is considered case by case and that the House does not publish or share client information under any circumstance.
           </p>
 

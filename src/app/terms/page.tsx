@@ -21,7 +21,7 @@ export default function TermsPage() {
             { h: "04 · Force majeure", b: "Acts of God, sovereign decision, war, pandemic and weather may impair service. The House will, in all cases, do what a House does — find another way." },
           ].map((s, i) => (
             <Reveal key={s.h} delay={i * 0.1}>
-              <article className="border-t border-gold/20 pt-8">
+              <article className="border-t border-pearl pt-8">
                 <h2 className="font-serif text-3xl mb-4">{s.h}</h2>
                 <p className="body-lg">{s.b}</p>
               </article>

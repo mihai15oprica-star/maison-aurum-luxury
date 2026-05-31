@@ -21,8 +21,8 @@ export default function PageHero({ eyebrow, title, subtitle, image, align = "lef
         className="absolute inset-0"
       >
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
-        <div className="absolute inset-0 bg-noir/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-noir/40 via-transparent to-noir" />
+        <div className="absolute inset-0 bg-white/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white" />
       </motion.div>
       <div className={`relative h-full container-luxe flex flex-col justify-end pb-20 ${align === "center" ? "items-center text-center" : ""}`}>
         <motion.p

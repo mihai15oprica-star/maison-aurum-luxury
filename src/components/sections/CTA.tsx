@@ -16,7 +16,7 @@ export default function CTA({
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section className="relative py-32 md:py-48 bg-noir overflow-hidden">
+    <section className="relative py-32 md:py-48 bg-cream overflow-hidden">
       <div aria-hidden className="absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] rounded-full bg-gold/5 blur-[160px]" />
       </div>

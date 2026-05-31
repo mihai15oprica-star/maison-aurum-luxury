@@ -38,16 +38,16 @@ export default function Nav() {
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-500",
           scrolled
-            ? "py-3 bg-noir/60 backdrop-blur-xl border-b border-gold/10"
+            ? "py-3 bg-white/85 backdrop-blur-xl border-b border-pearl"
             : "py-6 bg-transparent"
         )}
       >
         <nav aria-label="Primary" className="container-luxe flex items-center justify-between gap-8">
           <Link href="/" className="group flex flex-col leading-none" aria-label={`${brand.name} home`}>
-            <span className="font-serif text-2xl md:text-[28px] tracking-[0.02em] text-ivory group-hover:text-gold transition-colors duration-500">
+            <span className="font-serif text-2xl md:text-[28px] tracking-[0.02em] text-noir group-hover:text-gold transition-colors duration-500">
               MAISON <span className="gold-text">AURUM</span>
             </span>
-            <span className="mt-1 text-[9px] tracking-[0.5em] uppercase text-ivory/50">
+            <span className="mt-1 text-[9px] tracking-[0.5em] uppercase text-noir/50">
               {brand.established}
             </span>
           </Link>
@@ -61,7 +61,7 @@ export default function Nav() {
                     href={item.href}
                     className={cn(
                       "relative font-sans text-[11px] uppercase tracking-[0.3em] transition-colors duration-300",
-                      active ? "text-gold" : "text-ivory/70 hover:text-ivory"
+                      active ? "text-gold" : "text-noir/70 hover:text-noir"
                     )}
                     aria-current={active ? "page" : undefined}
                   >
@@ -78,7 +78,7 @@ export default function Nav() {
           <div className="flex items-center gap-4">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.3em] text-ivory border border-gold/40 px-5 py-2.5 hover:text-noir hover:bg-gold transition-all duration-500"
+              className="hidden md:inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.3em] text-noir border border-noir/40 px-5 py-2.5 hover:text-noir hover:bg-gold transition-all duration-500"
             >
               Apply
             </Link>
@@ -89,8 +89,8 @@ export default function Nav() {
               aria-label="Open menu"
               aria-expanded={open}
             >
-              <span className="block w-6 h-px bg-ivory" />
-              <span className="block w-6 h-px bg-ivory" />
+              <span className="block w-6 h-px bg-noir" />
+              <span className="block w-6 h-px bg-noir" />
               <span className="block w-4 h-px bg-gold ml-auto" />
             </button>
             <button
@@ -100,8 +100,8 @@ export default function Nav() {
               aria-label="Open menu"
               aria-expanded={open}
             >
-              <span className="block w-7 h-px bg-ivory" />
-              <span className="block w-7 h-px bg-ivory" />
+              <span className="block w-7 h-px bg-noir" />
+              <span className="block w-7 h-px bg-noir" />
               <span className="block w-5 h-px bg-gold ml-auto" />
             </button>
           </div>
@@ -118,7 +118,7 @@ export default function Nav() {
             animate={reduce ? { opacity: 1 } : { clipPath: "circle(150% at 100% 0%)" }}
             exit={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.9, ease: [0.85, 0, 0.15, 1] }}
-            className="fixed inset-0 z-[60] bg-noir overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-white overflow-y-auto"
           >
             <div className="container-luxe min-h-screen flex flex-col">
               <div className="flex items-center justify-between py-6">
@@ -128,7 +128,7 @@ export default function Nav() {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="font-sans text-[11px] uppercase tracking-[0.3em] text-ivory hover:text-gold transition-colors"
+                  className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir hover:text-gold transition-colors"
                   aria-label="Close menu"
                   autoFocus
                 >
@@ -152,7 +152,7 @@ export default function Nav() {
                         <span className="text-gold/50 font-sans text-[11px] tracking-[0.3em]">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span className="font-serif text-5xl md:text-7xl text-ivory group-hover:text-gold group-hover:italic transition-all duration-500">
+                        <span className="font-serif text-5xl md:text-7xl text-noir group-hover:text-gold group-hover:italic transition-all duration-500">
                           {item.label}
                         </span>
                       </Link>
@@ -169,15 +169,15 @@ export default function Nav() {
                     <p className="eyebrow mb-3">Concierge</p>
                     <a href={`tel:${brand.phone}`} className="font-serif text-2xl link-underline">{brand.phone}</a>
                     <br />
-                    <a href={`mailto:${brand.email}`} className="font-sans text-sm text-ivory/70 link-underline">{brand.email}</a>
+                    <a href={`mailto:${brand.email}`} className="font-sans text-sm text-noir/70 link-underline">{brand.email}</a>
                   </div>
                   <div>
                     <p className="eyebrow mb-3">Office</p>
-                    <p className="font-serif text-xl text-ivory/90">{brand.address}</p>
+                    <p className="font-serif text-xl text-noir/90">{brand.address}</p>
                   </div>
                   <div>
                     <p className="eyebrow mb-3">Hours</p>
-                    <p className="font-sans text-sm text-ivory/70">24 / 7 · 365</p>
+                    <p className="font-sans text-sm text-noir/70">24 / 7 · 365</p>
                   </div>
                 </motion.aside>
               </div>

@@ -34,19 +34,19 @@ export default function DestinationDetail({ params }: { params: { slug: string }
           <div className="md:col-span-4">
             <Reveal>
               <p className="eyebrow mb-6">— The setting</p>
-              <p className="font-sans text-xs tracking-[0.3em] uppercase text-ivory/50">{d.coords}</p>
+              <p className="font-sans text-xs tracking-[0.3em] uppercase text-noir/50">{d.coords}</p>
               <div className="hairline mt-6" />
             </Reveal>
           </div>
           <div className="md:col-span-7 md:col-start-6">
             <Reveal delay={0.15}>
-              <p className="font-serif text-3xl md:text-4xl leading-[1.2] text-ivory/95 text-balance">{d.intro}</p>
+              <p className="font-serif text-3xl md:text-4xl leading-[1.2] text-noir/95 text-balance">{d.intro}</p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 bg-noir-900">
+      <section className="relative py-24 md:py-32 bg-cream">
         <div className="container-luxe">
           <Reveal>
             <p className="eyebrow mb-6">— What the season offers</p>
@@ -57,7 +57,7 @@ export default function DestinationDetail({ params }: { params: { slug: string }
           <div className="grid md:grid-cols-3 gap-10 md:gap-12">
             {d.highlights.map((h, i) => (
               <Reveal key={h.title} delay={i * 0.1}>
-                <div className="border-t border-gold/20 pt-8 h-full">
+                <div className="border-t border-pearl pt-8 h-full">
                   <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold">— No. 0{i + 1}</span>
                   <h3 className="font-serif text-3xl mt-5 mb-4">{h.title}</h3>
                   <p className="body-lg">{h.body}</p>
@@ -78,7 +78,7 @@ export default function DestinationDetail({ params }: { params: { slug: string }
         </div>
       </section>
 
-      <section className="relative py-24 md:py-32 border-y border-gold/10 bg-noir-900">
+      <section className="relative py-24 md:py-32 border-y border-pearl bg-cream">
         <div className="container-luxe">
           <Reveal>
             <p className="eyebrow mb-6">— Continue the atlas</p>
@@ -88,14 +88,14 @@ export default function DestinationDetail({ params }: { params: { slug: string }
               <Reveal key={o.slug} delay={i * 0.1}>
                 <Link
                   href={`/destinations/${o.slug}`}
-                  className="group relative block h-[340px] overflow-hidden bg-noir-700 border border-gold/10 hover:border-gold/40 transition-colors duration-500"
+                  className="group relative block h-[340px] overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
                     style={{ backgroundImage: `url(${o.cover})` }}
                     aria-hidden="true"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-8">
                     <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold/80 mb-2">{o.country}</p>
                     <h3 className="font-serif text-3xl group-hover:text-gold transition-colors">{o.name}</h3>

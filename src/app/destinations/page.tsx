@@ -26,13 +26,13 @@ export default function DestinationsIndex() {
         image="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1920&q=80"
       />
 
-      <section className="relative py-32 md:py-48 bg-noir-900">
+      <section className="relative py-32 md:py-48 bg-cream">
         <div className="container-luxe space-y-8">
           {destinations.map((d, i) => (
             <Reveal key={d.slug} delay={i * 0.05}>
               <Link
                 href={`/destinations/${d.slug}`}
-                className="group grid md:grid-cols-12 items-center gap-6 md:gap-10 py-10 border-t border-gold/10 hover:border-gold/40 transition-colors duration-500"
+                className="group grid md:grid-cols-12 items-center gap-6 md:gap-10 py-10 border-t border-pearl hover:border-noir/40 transition-colors duration-500"
               >
                 <div className="md:col-span-1">
                   <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold">N° {String(i + 1).padStart(2, "0")}</span>
@@ -45,15 +45,15 @@ export default function DestinationsIndex() {
                   />
                 </div>
                 <div className="md:col-span-5">
-                  <h3 className="font-serif text-4xl md:text-6xl text-ivory group-hover:text-gold group-hover:italic transition-all duration-500">
+                  <h3 className="font-serif text-4xl md:text-6xl text-noir group-hover:text-gold group-hover:italic transition-all duration-500">
                     {d.name}
                   </h3>
-                  <p className="font-serif italic text-ivory/60 mt-2">{d.tagline}</p>
+                  <p className="font-serif italic text-noir/60 mt-2">{d.tagline}</p>
                 </div>
                 <div className="md:col-span-2 md:text-right space-y-1">
-                  <p className="font-sans text-xs uppercase tracking-[0.3em] text-ivory/50">{d.country}</p>
-                  <p className="font-sans text-xs text-ivory/40">{d.season}</p>
-                  <p className="font-sans text-[10px] text-ivory/30 mt-2">{d.coords}</p>
+                  <p className="font-sans text-xs uppercase tracking-[0.3em] text-noir/50">{d.country}</p>
+                  <p className="font-sans text-xs text-noir/40">{d.season}</p>
+                  <p className="font-sans text-[10px] text-noir/30 mt-2">{d.coords}</p>
                 </div>
               </Link>
             </Reveal>
@@ -61,7 +61,7 @@ export default function DestinationsIndex() {
         </div>
       </section>
 
-      <section className="relative py-32 md:py-40 border-t border-gold/10">
+      <section className="relative py-32 md:py-40 border-t border-pearl">
         <div className="container-luxe">
           <Reveal>
             <p className="eyebrow mb-6">— And further still</p>
@@ -70,7 +70,7 @@ export default function DestinationsIndex() {
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 font-serif text-lg md:text-xl text-ivory/70">
+            <ul className="flex flex-wrap gap-x-8 gap-y-3 font-serif text-lg md:text-xl text-noir/70">
               {others.map((c, i) => (
                 <li key={`${c}-${i}`} className="hover:text-gold transition-colors">
                   <span>{c}</span>

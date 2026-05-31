@@ -23,7 +23,7 @@ export default function DestinationsScroll() {
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <Link href="/destinations" className="link-underline font-sans text-[11px] uppercase tracking-[0.3em] text-ivory/70 hover:text-gold">
+              <Link href="/destinations" className="link-underline font-sans text-[11px] uppercase tracking-[0.3em] text-noir/70 hover:text-gold">
                 View all destinations
               </Link>
             </Reveal>
@@ -37,22 +37,22 @@ export default function DestinationsScroll() {
             <Link
               key={d.slug}
               href={`/destinations/${d.slug}`}
-              className="group relative shrink-0 w-[80vw] md:w-[60vw] lg:w-[44vw] h-[68vh] overflow-hidden bg-noir-700 border border-gold/10"
+              className="group relative shrink-0 w-[80vw] md:w-[60vw] lg:w-[44vw] h-[68vh] overflow-hidden bg-white border border-pearl"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-[2s] ease-out group-hover:scale-110"
                 style={{ backgroundImage: `url(${d.cover})` }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-noir via-noir/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
               <div className="absolute top-8 left-8 right-8 flex items-center justify-between">
                 <span className="text-gold/80 text-[11px] tracking-[0.4em]">N° {String(i + 1).padStart(2, "0")}</span>
-                <span className="text-ivory/60 text-[11px] tracking-[0.4em]">{d.coords}</span>
+                <span className="text-noir/60 text-[11px] tracking-[0.4em]">{d.coords}</span>
               </div>
               <div className="absolute bottom-8 left-8 right-8">
-                <p className="text-ivory/60 text-[11px] tracking-[0.4em] uppercase mb-3">{d.country} · {d.season}</p>
-                <h3 className="font-serif text-5xl md:text-6xl lg:text-7xl text-ivory group-hover:text-gold transition-colors duration-500">{d.name}</h3>
-                <p className="mt-3 font-serif italic text-lg text-ivory/70 max-w-md">{d.tagline}</p>
+                <p className="text-noir/60 text-[11px] tracking-[0.4em] uppercase mb-3">{d.country} · {d.season}</p>
+                <h3 className="font-serif text-5xl md:text-6xl lg:text-7xl text-noir group-hover:text-gold transition-colors duration-500">{d.name}</h3>
+                <p className="mt-3 font-serif italic text-lg text-noir/70 max-w-md">{d.tagline}</p>
               </div>
             </Link>
           ))}
