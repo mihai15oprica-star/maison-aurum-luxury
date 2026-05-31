@@ -21,8 +21,8 @@ export default function PageHero({ eyebrow, title, subtitle, image, align = "lef
         className="absolute inset-0"
       >
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
-        <div className="absolute inset-0 bg-white/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white" />
+        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute inset-0 hero-scrim" />
       </motion.div>
       <div className={`relative h-full container-luxe flex flex-col justify-end pb-20 ${align === "center" ? "items-center text-center" : ""}`}>
         <motion.p
@@ -33,7 +33,7 @@ export default function PageHero({ eyebrow, title, subtitle, image, align = "lef
         >
           {eyebrow}
         </motion.p>
-        <h1 className="display-1 max-w-5xl text-balance">
+        <h1 className="display-1 max-w-4xl text-balance text-noir">
           {typeof title === "string" ? <RevealLines text={title} delay={0.6} /> : title}
         </h1>
         {subtitle && (
@@ -41,7 +41,7 @@ export default function PageHero({ eyebrow, title, subtitle, image, align = "lef
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="body-lg mt-8 max-w-2xl"
+            className="body-lg mt-8 prose-luxe text-noir/80"
           >
             {subtitle}
           </motion.p>

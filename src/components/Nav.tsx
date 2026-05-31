@@ -38,7 +38,7 @@ export default function Nav() {
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-500",
           scrolled
-            ? "py-3 bg-white/85 backdrop-blur-xl border-b border-pearl"
+            ? "py-3 bg-white/90 backdrop-blur-xl border-b border-gold/30 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
             : "py-6 bg-transparent"
         )}
       >
@@ -60,8 +60,8 @@ export default function Nav() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative font-sans text-[11px] uppercase tracking-[0.3em] transition-colors duration-300",
-                      active ? "text-gold" : "text-noir/70 hover:text-noir"
+                      "relative font-sans text-[12px] uppercase tracking-[0.25em] transition-colors duration-300",
+                      active ? "text-noir" : "text-noir/60 hover:text-noir"
                     )}
                     aria-current={active ? "page" : undefined}
                   >

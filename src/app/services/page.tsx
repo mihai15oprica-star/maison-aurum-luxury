@@ -34,7 +34,7 @@ export default function ServicesIndex() {
                 <TiltCard className="h-full">
                   <Link
                     href={`/${s.slug}`}
-                    className="group relative block h-[500px] overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500"
+                    className="group relative block h-[500px] overflow-hidden card-luxe"
                   >
                     <div
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"

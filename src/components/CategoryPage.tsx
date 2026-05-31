@@ -65,7 +65,7 @@ export default function CategoryPage({ c }: { c: Category }) {
             {c.listings.map((l, i) => (
               <Reveal key={l.name} delay={i * 0.08}>
                 <TiltCard className="h-full">
-                  <article className="group relative overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500 h-full">
+                  <article className="group relative overflow-hidden card-luxe h-full">
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"

@@ -36,9 +36,8 @@ export default function Hero() {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-white/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white" />
-        <div className="absolute inset-0 bg-light-vignette" />
+        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute inset-0 hero-scrim" />
       </motion.div>
 
       {/* Foreground: three rows — eyebrow / centered title block / scroll indicator */}
@@ -51,14 +50,14 @@ export default function Hero() {
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="text-[11px] font-sans uppercase tracking-[0.2em] text-gold"
+            className="text-[12px] font-sans uppercase tracking-[0.3em] text-noir/70 hero-text-shadow"
           >
             Maison Aurum &nbsp;·&nbsp; Private Concierge &nbsp;·&nbsp; Est. MMXVI
           </motion.p>
         </div>
 
-        <div className="container-luxe flex-1 flex flex-col justify-center py-12">
-          <div className="max-w-5xl">
+        <div className="container-luxe flex-1 flex flex-col justify-end pb-4">
+          <div className="max-w-4xl">
             <h1 className="font-serif text-[56px] md:text-[80px] lg:text-[120px] leading-none tracking-tight text-balance text-noir">
               <span className="block whitespace-nowrap">The world&apos;s most</span>
               <span className="block italic">discreet</span>
@@ -67,7 +66,7 @@ export default function Hero() {
               initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.1 }}
-              className="body-lg mt-8 md:mt-10 max-w-xl text-noir/80"
+              className="body-lg mt-8 md:mt-10 prose-luxe text-noir/80"
             >
               From villas in St. Barth to tables in Milan, motorcars in Monaco to yachts off the Cyclades — every wish, answered before it is asked.
             </motion.p>

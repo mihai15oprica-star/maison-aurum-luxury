@@ -88,7 +88,7 @@ export default function DestinationDetail({ params }: { params: { slug: string }
               <Reveal key={o.slug} delay={i * 0.1}>
                 <Link
                   href={`/destinations/${o.slug}`}
-                  className="group relative block h-[340px] overflow-hidden bg-white border border-pearl hover:border-noir/40 transition-colors duration-500"
+                  className="group relative block h-[340px] overflow-hidden card-luxe"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
