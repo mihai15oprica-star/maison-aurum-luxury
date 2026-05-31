@@ -43,17 +43,21 @@ export default function Nav() {
         )}
       >
         <nav aria-label="Primary" className="container-luxe grid grid-cols-2 lg:grid-cols-3 items-center gap-8">
-          {/* Logo — left, stacked */}
-          <Link href="/" className="group flex flex-col items-center leading-none justify-self-start" aria-label={`${brand.name} home`}>
-            <span className="flex items-center gap-2">
-              <span className="font-sans text-[13px] tracking-[0.4em] uppercase text-noir">
-                Maison
+          {/* Logo — left, stacked; same-line wordmark + tagline below */}
+          <Link
+            href="/"
+            aria-label="Maison Aurum, established 2016 — home"
+            className="group flex flex-col items-start justify-self-start leading-none whitespace-nowrap"
+          >
+            <span aria-hidden="true" className="flex items-baseline gap-1.5">
+              <span className="font-sans text-[13px] font-normal tracking-[0.4em] uppercase text-[#0A0A0A]">
+                MAISON
               </span>
-              <span className="font-serif italic text-[28px] leading-none text-gold">
+              <span className="font-serif text-[22px] italic text-gold">
                 Aurum
               </span>
             </span>
-            <span className="mt-1.5 font-sans text-[8px] tracking-[0.3em] uppercase text-[#6B6258] text-center">
+            <span aria-hidden="true" className="mt-0.5 font-sans text-[8px] tracking-[0.35em] uppercase text-[#6B6258]">
               Established MMXVI
             </span>
           </Link>
