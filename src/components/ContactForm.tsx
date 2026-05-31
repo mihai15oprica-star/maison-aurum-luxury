@@ -70,9 +70,9 @@ export default function ContactForm() {
                   defaultValue=""
                   className="w-full bg-transparent border-b border-pearl hover:border-noir/40 focus:border-gold pb-3 font-sans text-base text-noir outline-none transition-colors appearance-none cursor-pointer"
                 >
-                  <option value="" disabled className="bg-noir">— select —</option>
+                  <option value="" disabled className="bg-white text-noir">— select —</option>
                   {f.options.map((o) => (
-                    <option key={o} value={o} className="bg-noir text-noir">{o}</option>
+                    <option key={o} value={o} className="bg-white text-noir">{o}</option>
                   ))}
                 </select>
               ) : f.textarea ? (

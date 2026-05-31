@@ -12,7 +12,7 @@ export default function DestinationsScroll() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66%"]);
 
   return (
-    <section ref={ref} className="relative h-[400vh] bg-noir" aria-label="Destinations">
+    <section ref={ref} className="relative h-[400vh] bg-cream" aria-label="Destinations">
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
         <div className="container-luxe mb-12 md:mb-16">
           <div className="flex items-end justify-between gap-8">

@@ -4,18 +4,24 @@
 
 @layer base {
   :root {
-    --noir: #16130d;
+    --noir: #1a1208;
+    --black: #0a0a0a;
     --gold: #c9a84c;
     --gold-deep: #8c6f26;
-    --gold-label: #7a5f1e;
+    --gold-label: #6f561a;
+    --gold-light: #e8d5a3;
     --gold-bright: #ffd700;
-    --ivory: #fbfaf8;
-    --cream: #f4f0e8;
+    --off-white: #f9f6f1;
+    --warm-gray: #f2ede6;
+    --ivory: #ffffff;
+    --cream: #f9f6f1;
     --pearl: #e3dccd;
+    --text-primary: #1a1208;
+    --text-secondary: #5a524a;
   }
 
   html {
-    background: var(--ivory);
+    background: #ffffff;
     color: var(--noir);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -23,8 +29,8 @@
   }
 
   body {
-    background: var(--ivory);
-    color: var(--noir);
+    background: #ffffff;
+    color: var(--text-primary);
     font-feature-settings: "ss01", "cv11", "liga", "dlig";
     overflow-x: hidden;
   }
@@ -92,7 +98,7 @@
   }
 
   .display-2 {
-    @apply font-serif text-[clamp(2.25rem,5vw,4rem)] leading-[1.02] tracking-[-0.025em];
+    @apply font-serif text-[clamp(3rem,5vw,4rem)] leading-[1.1] tracking-[-0.025em];
   }
 
   .display-3 {
@@ -100,7 +106,8 @@
   }
 
   .body-lg {
-    @apply font-sans text-[17px] md:text-[18px] leading-[1.8] text-noir/70;
+    @apply font-sans text-[17px] leading-[1.85] max-w-[620px];
+    color: var(--text-secondary);
   }
 
   /* oversized decorative section numeral (always paired with a real heading) */
@@ -186,10 +193,10 @@
   .hero-scrim {
     background: linear-gradient(
       to bottom,
-      rgba(251, 250, 248, 0) 0%,
-      rgba(251, 250, 248, 0.08) 42%,
-      rgba(251, 250, 248, 0.8) 80%,
-      var(--ivory) 100%
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.06) 40%,
+      rgba(255, 255, 255, 0.78) 78%,
+      #ffffff 100%
     );
   }
 }

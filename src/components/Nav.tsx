@@ -36,23 +36,28 @@ export default function Nav() {
     <>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+          "fixed top-0 inset-x-0 z-50 bg-white border-b transition-all duration-500",
           scrolled
-            ? "py-3 bg-white/90 backdrop-blur-xl border-b border-gold/30 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
-            : "py-6 bg-transparent"
+            ? "py-3 border-gold/40 shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
+            : "py-5 border-gold/40"
         )}
       >
-        <nav aria-label="Primary" className="container-luxe flex items-center justify-between gap-8">
-          <Link href="/" className="group flex flex-col leading-none" aria-label={`${brand.name} home`}>
-            <span className="font-serif text-2xl md:text-[28px] tracking-[0.02em] text-noir group-hover:text-gold transition-colors duration-500">
-              MAISON <span className="gold-text">AURUM</span>
+        <nav aria-label="Primary" className="container-luxe grid grid-cols-2 lg:grid-cols-3 items-center gap-8">
+          {/* Logo — left, stacked */}
+          <Link href="/" className="group flex flex-col leading-none justify-self-start" aria-label={`${brand.name} home`}>
+            <span className="font-sans text-[13px] tracking-[0.4em] uppercase text-noir">
+              Maison
             </span>
-            <span className="mt-1 text-[9px] tracking-[0.5em] uppercase text-noir/50">
-              {brand.established}
+            <span className="font-serif italic text-[28px] leading-none text-gold mt-0.5">
+              Aurum
+            </span>
+            <span className="mt-1.5 font-sans text-[8px] tracking-[0.3em] uppercase text-[#6B6258]">
+              Established MMXVI
             </span>
           </Link>
 
-          <ul className="hidden lg:flex items-center gap-7">
+          {/* Nav links — center */}
+          <ul className="hidden lg:flex items-center justify-center gap-8">
             {nav.slice(1, -1).map((item) => {
               const active = pathname === item.href || pathname.startsWith(item.href + "/");
               return (
@@ -60,25 +65,29 @@ export default function Nav() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative font-sans text-[12px] uppercase tracking-[0.25em] transition-colors duration-300",
-                      active ? "text-noir" : "text-noir/60 hover:text-noir"
+                      "group relative font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300",
+                      active ? "text-noir" : "text-noir hover:text-noir"
                     )}
                     aria-current={active ? "page" : undefined}
                   >
                     {item.label}
-                    {active && (
-                      <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-px w-6 bg-gold" />
-                    )}
+                    <span
+                      className={cn(
+                        "absolute -bottom-1.5 left-0 h-px bg-gold transition-all duration-500",
+                        active ? "w-full" : "w-0 group-hover:w-full"
+                      )}
+                    />
                   </Link>
                 </li>
               );
             })}
           </ul>
 
-          <div className="flex items-center gap-4">
+          {/* APPLY — right */}
+          <div className="flex items-center gap-4 justify-self-end">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.3em] text-noir border border-noir/40 px-5 py-2.5 hover:text-noir hover:bg-gold transition-all duration-500"
+              className="hidden md:inline-flex items-center justify-center font-sans text-[10px] uppercase tracking-[0.3em] text-white bg-noir-900 px-7 py-3.5 hover:bg-gold hover:text-noir-900 transition-colors duration-500"
             >
               Apply
             </Link>
