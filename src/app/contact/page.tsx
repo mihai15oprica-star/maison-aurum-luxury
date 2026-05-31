@@ -79,8 +79,12 @@ export default function ContactPage() {
             <div className="relative aspect-[4/3] overflow-hidden border border-pearl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80"
+                src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80"
                 alt="A view of the Monte-Carlo carré d'or near the Maison Aurum office"
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={900}
                 className="absolute inset-0 h-full w-full object-cover grayscale-[0.3]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/60 to-transparent" />

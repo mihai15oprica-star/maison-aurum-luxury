@@ -5,7 +5,9 @@ import Lenis from "lenis";
 export default function SmoothScroll() {
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    // Native scroll on touch/mobile — Lenis rAF is costly there and fights momentum scroll.
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    if (reduce || coarse) return;
 
     const lenis = new Lenis({
       duration: 1.25,

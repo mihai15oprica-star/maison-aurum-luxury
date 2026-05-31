@@ -19,7 +19,9 @@ export default function TiltCard({
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || !ref.current) return;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    // Skip tilt on touch/mobile — no hover, and the listeners cost more than they're worth.
+    if (reduce || coarse || !ref.current) return;
     VanillaTilt.init(ref.current, {
       max,
       speed,

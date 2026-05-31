@@ -86,6 +86,7 @@ export default function Lightbox({
             <img
               src={images[index].src}
               alt={images[index].alt}
+              decoding="async"
               className="w-full max-h-[80vh] object-contain"
             />
             {images[index].caption && (

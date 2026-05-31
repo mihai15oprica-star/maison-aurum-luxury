@@ -82,7 +82,7 @@ export const destinations = [
     tagline: "The capital of quiet luxury.",
     season: "Sept — Apr",
     coords: "45.4642° N, 9.1900° E",
-    cover: U("1520175480921-4edfa2983e0f", 2400),
+    cover: U("1520175480921-4edfa2983e0f", 1600),
     intro:
       "Milan does not announce itself. It is the city of the boardroom and the salon, of Brera ateliers and unmarked doors on Via Manzoni. We open them.",
     highlights: [
@@ -104,7 +104,7 @@ export const destinations = [
     tagline: "Where the Aegean meets the velvet rope.",
     season: "May — Oct",
     coords: "37.4467° N, 25.3289° E",
-    cover: U("1533105079780-92b9be482077", 2400),
+    cover: U("1533105079780-92b9be482077", 1600),
     intro:
       "The island sets a stage — clifftop villas, white marble, sun-bleached linens. We curate the season for you, from Nammos at noon to Scorpios at sundown.",
     highlights: [
@@ -126,7 +126,7 @@ export const destinations = [
     tagline: "The Caribbean, by invitation only.",
     season: "Nov — Apr",
     coords: "17.9000° N, 62.8333° W",
-    cover: U("1548574505-5e239809ee19", 2400),
+    cover: U("1548574505-5e239809ee19", 1600),
     intro:
       "Eight square miles of perfect coastline, French restraint and quiet wealth. The villas are private. The yachts are anchored. The reservations were made last September.",
     highlights: [
@@ -148,7 +148,7 @@ export const destinations = [
     tagline: "Where ambition was given a skyline.",
     season: "Oct — Apr",
     coords: "25.2048° N, 55.2708° E",
-    cover: U("1512453979798-5ea266f8880c", 2400),
+    cover: U("1512453979798-5ea266f8880c", 1600),
     intro:
       "The newest of the world's old capitals. Penthouse views, private aviation, desert-edge palaces and the discreet hospitality of the Gulf.",
     highlights: [
@@ -170,7 +170,7 @@ export const destinations = [
     tagline: "The carré d'or of the Riviera.",
     season: "Apr — Oct",
     coords: "43.7384° N, 7.4246° E",
-    cover: U("1494522855154-9297ac14b55f", 2400),
+    cover: U("1494522855154-9297ac14b55f", 1600),
     intro:
       "Grand Prix week, the Yacht Show, the season at Monte-Carlo. Our quietest territory and the one we know best.",
     highlights: [
@@ -192,7 +192,7 @@ export const destinations = [
     tagline: "The high altar of alpine luxury.",
     season: "Dec — Mar",
     coords: "45.4154° N, 6.6347° E",
-    cover: U("1540555700478-4be289fbecef", 2400),
+    cover: U("1540555700478-4be289fbecef", 1600),
     intro:
       "1850 itself: the Cheval Blanc, the K2, the chalets above the piste with their butlers and ski valets and after-dinner caviar.",
     highlights: [

@@ -44,7 +44,7 @@ export const categories: Record<Category["slug"], Category> = {
       "Ultra-private homes — cliffside, vineyard, beachfront, alpine — with full staff, chef, and security. From a week to a season.",
     intro:
       "Our villas are not on rental platforms. They are private residences whose owners have, over years, come to trust us with their keys. Eight to twenty bedrooms. Full staff in residence. A chef who already knows your child's allergies.",
-    hero: U(ID.villa, 2400),
+    hero: U(ID.villa, 1600),
     pillars: [
       { title: "Owner-known portfolio", body: "Two hundred and forty residences across Mediterranean, Caribbean and Alpine markets — every key handed over personally." },
       { title: "Resident staff", body: "Butler, housekeeper, chef, driver, security. Where required, a personal nanny and tutor in residence." },
@@ -71,7 +71,7 @@ export const categories: Record<Category["slug"], Category> = {
       "Sail and motor yachts from 30 to 130 metres. Crewed itineraries from Porto Cervo to the Cyclades, from the Bahamas to the Maldives.",
     intro:
       "We curate a private fleet whose owners — many of whom we have known for fifteen years — release their boats only to our members. The captain knows the wind. The chef has the second Michelin star. The itinerary is yours.",
-    hero: U(ID.yacht, 2400),
+    hero: U(ID.yacht, 1600),
     pillars: [
       { title: "Owner-direct fleet", body: "Forty motor yachts and twelve sailing yachts across three oceans, released to our members before broker listing." },
       { title: "Itinerary atelier", body: "Cycladic, Balearic, Tyrrhenian and Adriatic itineraries drawn by hand — every cove, port and table arranged." },
@@ -98,7 +98,7 @@ export const categories: Record<Category["slug"], Category> = {
       "From the chauffeured Phantom waiting at the FBO to the Pagani Huayra delivered to your villa. Self-drive and driven, by the hour or the season.",
     intro:
       "Our garage holds three hundred and forty motorcars across Europe — modern hypercars, classic Ferraris, restomod Defenders, and the city Phantoms most of our members ride in. Vehicles arrive valeted, fuelled, and detailed.",
-    hero: U(ID.car, 2400),
+    hero: U(ID.car, 1600),
     pillars: [
       { title: "Hypercar collection", body: "Pagani, Bugatti, Koenigsegg, Ferrari Icona series — drivable, properly insured, delivered." },
       { title: "Chauffeured fleet", body: "Phantoms, Cullinans, Mercedes-Maybach. Drivers EPP-trained, multilingual, NDA-bound." },
@@ -125,7 +125,7 @@ export const categories: Record<Category["slug"], Category> = {
       "Tables held when the book is closed. Chef's-only counters. Private dining rooms with the door locked behind you.",
     intro:
       "Our House Maître is the former Director of one of Europe's great three-star houses. He travels with a book that has every Maître's mobile number, every chef's private cellar key, and the standing reservations our members enjoy at four hundred and twelve restaurants worldwide.",
-    hero: U(ID.dining, 2400),
+    hero: U(ID.dining, 1600),
     pillars: [
       { title: "Standing reservations", body: "Tables held in your name at four hundred restaurants — released only when you have asked us to." },
       { title: "Chef's table dinners", body: "Private dining with three-star chefs at residence, or your villa." },
@@ -152,7 +152,7 @@ export const categories: Record<Category["slug"], Category> = {
       "Membership reciprocity, guaranteed entry and private tables at the season's most desired clubs — without the queue.",
     intro:
       "We hold founding or honorary memberships in ninety-six clubs and members' rooms. Where we cannot give you a key, we will introduce you to the door — and the table on the inside.",
-    hero: U(ID.club, 2400),
+    hero: U(ID.club, 1600),
     pillars: [
       { title: "Reciprocal memberships", body: "Direct access through our roster of ninety-six clubs across nineteen cities." },
       { title: "Guaranteed entry, never the queue", body: "Private entrance, your table waiting, your bottle already on ice." },
