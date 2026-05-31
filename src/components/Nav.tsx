@@ -45,7 +45,7 @@ export default function Nav() {
         <nav aria-label="Primary" className="container-luxe grid grid-cols-2 lg:grid-cols-3 items-center gap-8">
           {/* Logo — left, stacked */}
           <Link href="/" className="group flex flex-col items-center leading-none justify-self-start" aria-label={`${brand.name} home`}>
-            <span className="flex items-baseline gap-2">
+            <span className="flex items-center gap-2">
               <span className="font-sans text-[13px] tracking-[0.4em] uppercase text-noir">
                 Maison
               </span>
@@ -89,7 +89,7 @@ export default function Nav() {
           <div className="flex items-center gap-4 justify-self-end">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center justify-center font-sans text-[10px] uppercase tracking-[0.3em] text-white bg-noir-900 rounded-[4px] px-7 py-3.5 hover:bg-gold hover:text-noir-900 transition-colors duration-500"
+              className="hidden md:inline-flex items-center justify-center font-sans text-[10px] uppercase tracking-[0.3em] text-white bg-noir-900 rounded-[6px] px-7 py-3.5 hover:bg-gold hover:text-noir-900 transition-colors duration-500"
             >
               Apply
             </Link>
