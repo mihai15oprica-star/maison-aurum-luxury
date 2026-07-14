@@ -1,5 +1,10 @@
-import CategoryPage from "@/components/CategoryPage";
-import { categories } from "@/data/categories";
+import ListingsView from "@/components/ListingsView";
 
-export const metadata = { title: "Motorcars" };
-export default function Page() { return <CategoryPage c={categories.cars} />; }
+// Decision: Cars is a real listing page (not a PDF, unlike MADE).
+export const metadata = { title: "Cars" };
+
+type SearchParams = Record<string, string | string[] | undefined>;
+
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
+  return <ListingsView category="cars" searchParams={searchParams} />;
+}

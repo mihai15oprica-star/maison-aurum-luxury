@@ -1,89 +1,83 @@
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import StatsBand from "@/components/sections/StatsBand";
-import CTA from "@/components/sections/CTA";
 import Parallax from "@/components/Parallax";
+import WhatsAppButton from "@/components/WhatsAppButton";
+
+// TBD-7: the "About" menu item's final destination is undecided (dedicated page vs.
+// anchor). This provisional page keeps the nav item working meanwhile.
 
 const principles = [
-  { n: "01", t: "Discretion", b: "Names, addresses and itineraries never leave the dossier. Encrypted operations, single-point contact, sworn staff." },
-  { n: "02", t: "Anticipation", b: "We do not wait to be asked. We have already booked the table, dispatched the car, and confirmed the suite." },
-  { n: "03", t: "Taste", b: "Our standard is the one set by a great Italian tailor or a Burgundy of unimpeachable provenance — felt, not explained." },
-  { n: "04", t: "Loyalty", b: "We work with our clients for decades. The same concierge, the same standards, the same name they trust." },
+  { n: "01", t: "Discretion", b: "Names, dates and itineraries stay between us. One point of contact, sworn to keep it that way." },
+  { n: "02", t: "Anticipation", b: "We don't wait to be asked. The table is booked, the car dispatched, the villa readied before you land." },
+  { n: "03", t: "Access", b: "Direct relationships with the owners, venues and captains who matter across all three islands." },
+  { n: "04", t: "Devotion", b: "The same concierge, season after season — someone who learns exactly how you like to travel." },
 ];
 
-const team = [
-  { name: "Alessandra Vitale", role: "Founder & Maître de Maison", years: "20 yrs of practice", img: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80" },
-  { name: "Lorenzo Cattaneo", role: "Director, Yachts & Aviation", years: "Ex-Edmiston", img: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1200&q=80" },
-  { name: "Camille Lefebvre", role: "Director, Villas & Estates", years: "Ex-Knight Frank Private", img: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=80" },
-  { name: "Adrien Khoury", role: "Director, Tables & Cellars", years: "Ex-Le Cinq", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80" },
-];
-
-export const metadata = { title: "About — The House" };
+export const metadata = { title: "About" };
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="— The House"
-        title="A maison, not a service."
-        subtitle="Maison Aurum is a privately held concierge atelier headquartered in Monte-Carlo, with permanent ateliers in Milan, Paris, London, Dubai and St. Barth."
-        image="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80"
+        eyebrow="— About Baboó"
+        title="Your daydream, handled."
+        subtitle="Baboó is a luxury concierge for Ibiza, Mykonos and Saint Tropez — curating villas, yachts, cars, tables and the moments in between since 2019."
+        image="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80" /* TBD-6 */
       />
 
-      <section className="relative py-32 md:py-48">
-        <div className="container-luxe grid md:grid-cols-12 gap-12">
+      <section className="relative py-28 md:py-40">
+        <div className="container-luxe grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <Reveal>
-              <p className="eyebrow mb-6">— A short history</p>
+              <p className="eyebrow mb-6">— Since 2019</p>
               <h2 className="display-2 text-balance">
-                <span className="block whitespace-nowrap">Founded in <span className="italic gold-text">MMXVI.</span></span>
-                <span className="block whitespace-nowrap">Built every day since.</span>
+                Built for the islands <span className="italic gold-text">we love.</span>
               </h2>
             </Reveal>
           </div>
-          <div className="md:col-span-6 md:col-start-7 space-y-6">
+          <div className="space-y-6 md:col-span-6 md:col-start-7">
+            {/* TBD-2: final About copy */}
             <Reveal delay={0.2}>
               <p className="body-lg">
-                The House began as a private office serving four families across Lugano, Milan and London. A decade later, we serve a deliberately small membership across thirty-seven cities — never advertising, never publishing client names, never accepting an introduction without consideration.
+                Baboó began with a simple idea: that a summer in Ibiza, Mykonos or Saint Tropez should be effortless — the right villa, the right table, the right boat, without the chasing.
               </p>
             </Reveal>
             <Reveal delay={0.35}>
               <p className="body-lg">
-                Our staff have come from the great hotels and the great houses — the Ritz, Le Bristol, the Cipriani, the Splendido. They were trained for a world in which a guest&apos;s standard is set before they arrive, and met before they ask.
+                From our base in Bucharest we run a deliberately small membership, with a single dedicated concierge for every guest and direct lines to the owners, venues and crews who make these islands what they are.
               </p>
             </Reveal>
             <Reveal delay={0.5}>
               <p className="body-lg">
-                We are, finally, a house. Membership is for life. The door, once opened, is yours.
+                Tell us the trip you&rsquo;re dreaming of. We make it real — that&rsquo;s the whole promise.
               </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <section className="relative py-32 md:py-48 bg-cream overflow-hidden">
-        <Parallax speed={0.1} className="absolute inset-0 -z-10 opacity-[0.05] pointer-events-none flex items-center">
-          <div className="font-serif italic text-[18vw] leading-none tracking-tight text-gold whitespace-nowrap select-none">
-            principles
+      <section className="relative overflow-hidden bg-cream py-28 md:py-40">
+        <Parallax speed={0.1} className="pointer-events-none absolute inset-0 -z-10 flex items-center opacity-[0.05]">
+          <div className="whitespace-nowrap select-none font-serif text-[18vw] italic leading-none tracking-tight text-gold">
+            baboó
           </div>
         </Parallax>
         <div className="container-luxe">
           <Reveal>
-            <p className="eyebrow mb-6">— The four principles</p>
-            <h2 className="display-2 mb-20 text-balance max-w-4xl">
-              <span className="block whitespace-nowrap">The work is invisible.</span>
-              <span className="block whitespace-nowrap italic gold-text">The standards are not.</span>
+            <p className="eyebrow mb-6">— How we work</p>
+            <h2 className="display-2 mb-16 max-w-3xl text-balance">
+              The work is invisible. <span className="italic gold-text">The standard is not.</span>
             </h2>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+          <div className="grid gap-x-16 gap-y-14 md:grid-cols-2">
             {principles.map((p, i) => (
               <Reveal key={p.n} delay={i * 0.1}>
                 <div className="border-t border-pearl pt-8">
-                  <div className="flex items-baseline justify-between mb-6">
+                  <div className="mb-5 flex items-baseline justify-between">
                     <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold">— No. {p.n}</span>
-                    <span className="font-serif italic text-noir/30 text-2xl">{p.n}</span>
+                    <span className="font-serif text-2xl italic text-noir/30">{p.n}</span>
                   </div>
-                  <h3 className="font-serif text-4xl mb-5">{p.t}</h3>
+                  <h3 className="mb-4 font-serif text-3xl md:text-4xl">{p.t}</h3>
                   <p className="body-lg max-w-md">{p.b}</p>
                 </div>
               </Reveal>
@@ -92,44 +86,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <StatsBand />
-
-      <section className="relative py-32 md:py-48">
-        <div className="container-luxe">
-          <Reveal>
-            <p className="eyebrow mb-6">— The directors</p>
-            <h2 className="display-2 mb-20 text-balance">
-              People you will <span className="italic gold-text">know by name.</span>
-            </h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {team.map((m, i) => (
-              <Reveal key={m.name} delay={i * 0.08}>
-                <figure className="group">
-                  <div className="relative overflow-hidden aspect-[4/5] bg-white">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center grayscale group-hover:grayscale-0 transition-all duration-[1.4s] group-hover:scale-105"
-                      style={{ backgroundImage: `url(${m.img})` }}
-                      aria-hidden="true"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
-                  </div>
-                  <figcaption className="mt-5">
-                    <h3 className="font-serif text-2xl group-hover:text-gold transition-colors">{m.name}</h3>
-                    <p className="font-sans text-[11px] uppercase tracking-[0.3em] text-gold/80 mt-1">{m.role}</p>
-                    <p className="font-sans text-xs text-noir/50 mt-2">{m.years}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+      <section className="border-t border-pearl py-24">
+        <div className="container-luxe flex flex-col items-center gap-6 text-center">
+          <h2 className="display-3 max-w-2xl text-balance">
+            Let&rsquo;s make it <span className="italic gold-text">real.</span>
+          </h2>
+          <WhatsAppButton variant="inline" label="Contact Us" />
         </div>
       </section>
-
-      <CTA
-        heading={<>The kind of <span className="italic gold-text">relationship</span> that grows quieter with time.</>}
-        body="To begin, an introduction. To continue, a conversation. Decades follow."
-      />
     </>
   );
 }

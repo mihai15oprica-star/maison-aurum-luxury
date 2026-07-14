@@ -3,8 +3,27 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { nav, brand } from "@/data/site";
+import { nav, brand, contactHref } from "@/data/site";
+import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE } from "@/data/contact";
 import { cn } from "@/lib/cn";
+
+function Wordmark({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className="flex flex-col items-center leading-none">
+      <span
+        className={cn(
+          "font-serif tracking-[0.02em] text-noir",
+          compact ? "text-2xl" : "text-[26px] md:text-[30px]"
+        )}
+      >
+        Bab<span className="gold-text">oó</span>
+      </span>
+      <span className="mt-1 font-sans text-[8px] uppercase tracking-[0.4em] text-[#6B6258]">
+        {brand.since}
+      </span>
+    </span>
+  );
+}
 
 export default function Nav() {
   const pathname = usePathname();
@@ -19,11 +38,15 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
@@ -36,90 +59,43 @@ export default function Nav() {
     <>
       <header
         className={cn(
-          "fixed top-0 inset-x-0 z-50 bg-white border-b transition-all duration-500",
-          scrolled
-            ? "py-3 border-gold/40 shadow-[0_1px_20px_rgba(0,0,0,0.08)]"
-            : "py-5 border-gold/40"
+          "fixed inset-x-0 top-0 z-50 border-b border-gold/30 bg-white/95 backdrop-blur transition-all duration-500",
+          scrolled ? "py-3 shadow-[0_1px_20px_rgba(0,0,0,0.06)]" : "py-4"
         )}
       >
-        <nav aria-label="Primary" className="container-luxe grid grid-cols-2 lg:grid-cols-3 items-center gap-8">
-          {/* Logo — left, stacked; same-line wordmark + tagline below */}
+        <nav aria-label="Primary" className="container-luxe grid grid-cols-3 items-center">
+          {/* Hamburger — left */}
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="flex w-fit flex-col gap-[5px] p-2 justify-self-start"
+            aria-label="Open menu"
+            aria-expanded={open}
+          >
+            <span className="block h-px w-7 bg-noir" />
+            <span className="block h-px w-7 bg-noir" />
+            <span className="ml-auto block h-px w-5 bg-gold" />
+          </button>
+
+          {/* Logo — centre */}
           <Link
             href="/"
-            aria-label="Maison Aurum, established 2016 — home"
-            className="group flex flex-col items-start justify-self-start leading-none whitespace-nowrap"
+            aria-label={`${brand.name}, ${brand.since} — home`}
+            className="justify-self-center"
           >
-            <span aria-hidden="true" className="flex items-baseline gap-1.5">
-              <span className="font-sans text-[13px] font-normal tracking-[0.4em] uppercase text-[#0A0A0A]">
-                MAISON
-              </span>
-              <span className="font-serif text-[22px] italic text-gold">
-                Aurum
-              </span>
-            </span>
-            <span aria-hidden="true" className="mt-0.5 font-sans text-[8px] tracking-[0.35em] uppercase text-[#6B6258]">
-              Established MMXVI
-            </span>
+            <Wordmark />
           </Link>
 
-          {/* Nav links — center */}
-          <ul className="hidden lg:flex items-center justify-center gap-8">
-            {nav.slice(1, -1).map((item) => {
-              const active = pathname === item.href || pathname.startsWith(item.href + "/");
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "group relative font-sans text-[10px] uppercase tracking-[0.3em] transition-colors duration-300",
-                      active ? "text-noir" : "text-noir hover:text-noir"
-                    )}
-                    aria-current={active ? "page" : undefined}
-                  >
-                    {item.label}
-                    <span
-                      className={cn(
-                        "absolute -bottom-1.5 left-0 h-px bg-gold transition-all duration-500",
-                        active ? "w-full" : "w-0 group-hover:w-full"
-                      )}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* APPLY — right */}
-          <div className="flex items-center gap-4 justify-self-end">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center justify-center font-sans text-[10px] uppercase tracking-[0.3em] text-white bg-noir-900 rounded-[6px] px-7 py-3.5 hover:bg-gold hover:text-noir-900 transition-colors duration-500"
-            >
-              Apply
-            </Link>
-            <button
-              type="button"
-              onClick={() => setOpen(true)}
-              className="lg:hidden flex flex-col gap-1.5 p-2"
-              aria-label="Open menu"
-              aria-expanded={open}
-            >
-              <span className="block w-6 h-px bg-noir" />
-              <span className="block w-6 h-px bg-noir" />
-              <span className="block w-4 h-px bg-gold ml-auto" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setOpen(true)}
-              className="hidden lg:flex flex-col gap-1.5 p-2"
-              aria-label="Open menu"
-              aria-expanded={open}
-            >
-              <span className="block w-7 h-px bg-noir" />
-              <span className="block w-7 h-px bg-noir" />
-              <span className="block w-5 h-px bg-gold ml-auto" />
-            </button>
-          </div>
+          {/* Contact Us (WhatsApp) — right; floating button covers mobile */}
+          <a
+            href={contactHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden justify-self-end rounded-[6px] bg-noir-900 px-6 py-3 font-sans text-[10px] uppercase tracking-[0.3em] text-white transition-colors duration-500 hover:bg-gold hover:text-noir-900 md:inline-flex"
+          >
+            Contact Us
+          </a>
+          <span className="md:hidden" />
         </nav>
       </header>
 
@@ -129,21 +105,19 @@ export default function Nav() {
             role="dialog"
             aria-modal="true"
             aria-label="Site navigation"
-            initial={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 100% 0%)" }}
-            animate={reduce ? { opacity: 1 } : { clipPath: "circle(150% at 100% 0%)" }}
-            exit={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 100% 0%)" }}
+            initial={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 0% 0%)" }}
+            animate={reduce ? { opacity: 1 } : { clipPath: "circle(150% at 0% 0%)" }}
+            exit={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 0% 0%)" }}
             transition={{ duration: 0.9, ease: [0.85, 0, 0.15, 1] }}
-            className="fixed inset-0 z-[60] bg-white overflow-y-auto"
+            className="fixed inset-0 z-[60] overflow-y-auto bg-white"
           >
-            <div className="container-luxe min-h-screen flex flex-col">
-              <div className="flex items-center justify-between py-6">
-                <span className="font-serif text-2xl">
-                  MAISON <span className="gold-text">AURUM</span>
-                </span>
+            <div className="container-luxe flex min-h-screen flex-col">
+              <div className="flex items-center justify-between py-5">
+                <Wordmark compact />
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir hover:text-gold transition-colors"
+                  className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir transition-colors hover:text-gold"
                   aria-label="Close menu"
                   autoFocus
                 >
@@ -151,23 +125,20 @@ export default function Nav() {
                 </button>
               </div>
               <div className="hairline" />
-              <div className="flex-1 grid lg:grid-cols-[1.4fr_1fr] gap-12 py-12 md:py-20">
-                <ul className="flex flex-col gap-1 md:gap-2">
+              <div className="grid flex-1 gap-12 py-10 md:grid-cols-[1.4fr_1fr] md:py-16">
+                <ul className="flex flex-col gap-0.5 md:gap-1">
                   {nav.map((item, i) => (
                     <motion.li
-                      key={item.href}
+                      key={item.label}
                       initial={reduce ? { opacity: 0 } : { opacity: 0, x: -40 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.7, delay: 0.25 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.7, delay: 0.2 + i * 0.045, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <Link
-                        href={item.href}
-                        className="group flex items-baseline gap-6 py-2"
-                      >
-                        <span className="text-gold/50 font-sans text-[11px] tracking-[0.3em]">
+                      <Link href={item.href} className="group flex items-baseline gap-5 py-1.5">
+                        <span className="font-sans text-[11px] tracking-[0.3em] text-gold/50">
                           {String(i + 1).padStart(2, "0")}
                         </span>
-                        <span className="font-serif text-5xl md:text-7xl text-noir group-hover:text-gold group-hover:italic transition-all duration-500">
+                        <span className="font-serif text-4xl text-noir transition-all duration-500 group-hover:italic group-hover:text-gold md:text-6xl">
                           {item.label}
                         </span>
                       </Link>
@@ -177,22 +148,39 @@ export default function Nav() {
                 <motion.aside
                   initial={reduce ? { opacity: 0 } : { opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="space-y-10 self-end"
+                  transition={{ duration: 0.8, delay: 0.55 }}
+                  className="flex flex-col gap-8 self-end"
                 >
+                  <a
+                    href={contactHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit items-center justify-center rounded-[6px] bg-gold px-8 py-4 font-sans text-[11px] uppercase tracking-[0.3em] text-noir-900 transition-colors duration-500 hover:bg-gold-bright"
+                  >
+                    Contact Us
+                  </a>
                   <div>
                     <p className="eyebrow mb-3">Concierge</p>
-                    <a href={`tel:${brand.phone}`} className="font-serif text-2xl link-underline">{brand.phone}</a>
-                    <br />
-                    <a href={`mailto:${brand.email}`} className="font-sans text-sm text-noir/70 link-underline">{brand.email}</a>
+                    {PHONES.map((p) => (
+                      <a
+                        key={p.number}
+                        href={`tel:${p.number.replace(/\s/g, "")}`}
+                        className="block font-serif text-2xl link-underline"
+                      >
+                        {p.number}
+                      </a>
+                    ))}
+                    <a href={`mailto:${EMAIL}`} className="mt-2 block font-sans text-sm text-noir/70 link-underline">
+                      {EMAIL}
+                    </a>
+                  </div>
+                  <div>
+                    <p className="eyebrow mb-3">Follow</p>
+                    <p className="font-serif text-xl text-noir/90">{INSTAGRAM_HANDLE}</p>
                   </div>
                   <div>
                     <p className="eyebrow mb-3">Office</p>
-                    <p className="font-serif text-xl text-noir/90">{brand.address}</p>
-                  </div>
-                  <div>
-                    <p className="eyebrow mb-3">Hours</p>
-                    <p className="font-sans text-sm text-noir/70">24 / 7 · 365</p>
+                    <p className="font-serif text-lg text-noir/90">{LOCATION}</p>
                   </div>
                 </motion.aside>
               </div>

@@ -1,64 +1,38 @@
-"use client";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import TiltCard from "@/components/TiltCard";
-import { services } from "@/data/site";
+import { serviceCards } from "@/data/site";
 
-export default function ServicesGrid() {
+// "Our Services" — one card per category, each deep-linking to a listing page
+// pre-filtered on the current destination.
+export default function ServicesGrid({ destination }: { destination: string }) {
   return (
-    <section className="relative py-32 md:py-48 bg-cream">
+    <section className="relative py-28 md:py-32">
       <div className="container-luxe">
-        <div className="grid md:grid-cols-12 gap-12 mb-20">
-          <div className="md:col-span-5">
-            <Reveal>
-              <p className="eyebrow mb-6">— Service No. 01–06</p>
-              <h2 className="display-2 text-balance">
-                Six pillars. <br />
-                <span className="italic gold-text">One standard.</span>
-              </h2>
-            </Reveal>
-          </div>
-          <div className="md:col-span-6 md:col-start-7 flex items-end">
-            <Reveal delay={0.2}>
-              <p className="body-lg">
-                Each chapter of the House operates as its own atelier, staffed by specialists with two decades in their territory — the sommelier who knows the cellarmaster, the broker who knows the owner, the captain who knows the harbour.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((s, i) => (
-            <Reveal key={s.slug} delay={i * 0.08}>
-              <TiltCard className="h-full">
-                <Link
-                  href={`/${s.slug}`}
-                  className="group relative block h-[440px] overflow-hidden card-luxe"
-                >
+        <Reveal>
+          <p className="eyebrow mb-6">— Our Services</p>
+          <h2 className="display-2 mb-14 max-w-3xl text-balance">
+            Everything, <span className="italic gold-text">arranged.</span>
+          </h2>
+        </Reveal>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4">
+          {serviceCards.map((s, i) => (
+            <Reveal key={s.title} delay={i * 0.06}>
+              <Link href={s.href(destination)} className="group block h-full card-luxe overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] ease-out group-hover:scale-110"
-                    style={{ backgroundImage: `url(${s.cover})` }}
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
+                    style={{ backgroundImage: `url(${s.image})` }}
                     aria-hidden="true"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent" />
-                  <div className="relative h-full flex flex-col justify-between p-8">
-                    <div className="flex items-start justify-between">
-                      <span className="text-gold/70 text-xs tracking-[0.4em]">N° 0{i + 1}</span>
-                      <span className="text-gold text-2xl">{s.icon}</span>
-                    </div>
-                    <div>
-                      <h3 className="font-serif text-3xl md:text-4xl text-noir mb-3 group-hover:text-gold transition-colors duration-500">
-                        {s.title}
-                      </h3>
-                      <p className="font-sans text-sm text-noir/70 leading-relaxed line-clamp-3 max-w-xs">{s.blurb}</p>
-                      <span className="mt-6 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold">
-                        Discover
-                        <span className="block h-px w-8 bg-gold group-hover:w-14 transition-all duration-500" />
-                      </span>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-noir/75 via-noir/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-5">
+                    <h3 className="font-serif text-xl text-white md:text-2xl">{s.title}</h3>
+                    <span className="font-sans text-lg text-gold transition-transform duration-500 group-hover:translate-x-1" aria-hidden>
+                      →
+                    </span>
                   </div>
-                </Link>
-              </TiltCard>
+                </div>
+              </Link>
             </Reveal>
           ))}
         </div>

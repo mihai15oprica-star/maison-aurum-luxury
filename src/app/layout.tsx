@@ -6,6 +6,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RouteTransition from "@/components/RouteTransition";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -24,15 +25,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Maison Aurum — Private Luxury Concierge",
-    template: "%s · Maison Aurum",
+    default: "Baboó — Luxury Concierge · Ibiza, Mykonos, Saint Tropez",
+    template: "%s · Baboó",
   },
   description:
-    "A discreet, world-class concierge service curating private villas, yachts, restaurants, clubs, motorcars and bespoke experiences across Milan, Mykonos, St. Barth, Dubai and beyond.",
+    "Baboó is a luxury concierge curating private villas, yachts, cars, beach clubs, restaurants and bespoke experiences across Ibiza, Mykonos and Saint Tropez. Where daydreams become reality.",
   openGraph: {
-    title: "Maison Aurum — Private Luxury Concierge",
-    description:
-      "The world's most discerning private concierge. By invitation, by introduction, by design.",
+    title: "Baboó — Luxury Concierge",
+    description: "Where daydreams become reality. Ibiza · Mykonos · Saint Tropez.",
     type: "website",
   },
 };
@@ -56,6 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </RouteTransition>
         <Footer />
+        {/* Floating WhatsApp — fixed, visible on every page (TBD-1 number) */}
+        <WhatsAppButton variant="floating" />
       </body>
     </html>
   );

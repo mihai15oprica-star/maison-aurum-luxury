@@ -7,18 +7,18 @@ export default function TermsPage() {
   return (
     <>
       <PageHero
-        eyebrow="— The House"
+        eyebrow="— Legal"
         title="Terms of engagement."
-        subtitle="A short summary of the understanding between Maison Aurum and its members."
-        image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80"
+        subtitle="A short summary of the understanding between Baboó and its guests."
+        image="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=2400&q=80" /* TBD-6 */
       />
       <section className="py-32 md:py-40">
         <div className="container-luxe max-w-3xl space-y-10">
           {[
-            { h: "01 · Membership", b: "Membership in Maison Aurum is by introduction and at the discretion of the directors. It is non-transferable and may be paused or concluded at any time by either party." },
-            { h: "02 · Fees", b: "Annual fees and project fees are agreed in writing at the outset of the relationship. The House does not accept commission from suppliers; our independence is your guarantee." },
-            { h: "03 · Confidentiality", b: "All staff are bound by lifelong confidentiality. No client name, itinerary or preference is shared, published or referenced." },
-            { h: "04 · Force majeure", b: "Acts of God, sovereign decision, war, pandemic and weather may impair service. The House will, in all cases, do what a House does — find another way." },
+            { h: "01 · Membership", b: "Access to Baboó is by application and at our discretion. It is personal, non-transferable, and may be paused or concluded at any time by either party." },
+            { h: "02 · Fees", b: "Service and booking fees are agreed in writing before anything is confirmed. No surprises appear on your final statement." },
+            { h: "03 · Confidentiality", b: "Our team is bound by confidentiality. No guest name, itinerary or preference is shared, published or referenced." },
+            { h: "04 · Force majeure", b: "Weather, sovereign decision, strike or pandemic may impair a booking. In every case, Baboó will do what a concierge does — find another way." },
           ].map((s, i) => (
             <Reveal key={s.h} delay={i * 0.1}>
               <article className="border-t border-pearl pt-8">

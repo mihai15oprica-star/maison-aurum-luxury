@@ -1,5 +1,9 @@
-import CategoryPage from "@/components/CategoryPage";
-import { categories } from "@/data/categories";
+import ListingsView from "@/components/ListingsView";
 
-export const metadata = { title: "Yacht Charters" };
-export default function Page() { return <CategoryPage c={categories.yachts} />; }
+export const metadata = { title: "Yachts" };
+
+type SearchParams = Record<string, string | string[] | undefined>;
+
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
+  return <ListingsView category="yachts" searchParams={searchParams} />;
+}
