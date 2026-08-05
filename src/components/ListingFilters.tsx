@@ -22,10 +22,12 @@ export default function ListingFilters({ filters, current }: { filters: FilterDe
       if (v) params.set(f.key, v);
     }
     const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    // push, not replace: replace overwrites the current history entry, so Back
+    // skipped every filter state and left the listing page entirely.
+    router.push(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
-  const clearAll = () => router.replace(pathname, { scroll: false });
+  const clearAll = () => router.push(pathname, { scroll: false });
   const activeCount = filters.filter((f) => val(f.key)).length;
 
   return (
