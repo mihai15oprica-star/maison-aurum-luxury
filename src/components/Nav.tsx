@@ -109,80 +109,89 @@ export default function Nav() {
             animate={reduce ? { opacity: 1 } : { clipPath: "circle(150% at 0% 0%)" }}
             exit={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 0% 0%)" }}
             transition={{ duration: 0.9, ease: [0.85, 0, 0.15, 1] }}
-            className="fixed inset-0 z-[60] overflow-y-auto bg-white"
+            className="fixed inset-0 z-[60] bg-white"
           >
-            <div className="container-luxe flex min-h-screen flex-col">
-              <div className="flex items-center justify-between py-5">
-                <Wordmark compact />
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir transition-colors hover:text-gold"
-                  aria-label="Close menu"
-                  autoFocus
-                >
-                  Close ✕
-                </button>
-              </div>
-              <div className="hairline" />
-              <div className="grid flex-1 gap-12 py-10 md:grid-cols-[1.4fr_1fr] md:py-16">
-                <ul className="flex flex-col gap-0.5 md:gap-1">
-                  {nav.map((item, i) => (
-                    <motion.li
-                      key={item.label}
-                      initial={reduce ? { opacity: 0 } : { opacity: 0, x: -40 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.7, delay: 0.2 + i * 0.045, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <Link href={item.href} className="group flex items-baseline gap-5 py-1.5">
-                        <span className="font-sans text-[11px] tracking-[0.3em] text-gold/50">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="font-serif text-4xl text-noir transition-all duration-500 group-hover:italic group-hover:text-gold md:text-6xl">
-                          {item.label}
-                        </span>
-                      </Link>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.aside
-                  initial={reduce ? { opacity: 0 } : { opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.55 }}
-                  className="flex flex-col gap-8 self-end"
-                >
-                  <a
-                    href={contactHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex w-fit items-center justify-center rounded-[6px] bg-gold px-8 py-4 font-sans text-[11px] uppercase tracking-[0.3em] text-noir-900 transition-colors duration-500 hover:bg-gold-bright"
+            {/*
+              Lenis preventDefaults wheel events and scrolls the page itself, so
+              body overflow:hidden can't lock it and this panel never receives the
+              wheel. Without data-lenis-prevent the menu can't scroll and the items
+              below the fold are unreachable on short viewports. It sits on a plain
+              div because motion.div filters data attributes out.
+            */}
+            <div data-lenis-prevent className="h-full overflow-y-auto">
+              <div className="container-luxe flex min-h-full flex-col">
+                <div className="flex items-center justify-between py-5">
+                  <Wordmark compact />
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="font-sans text-[11px] uppercase tracking-[0.3em] text-noir transition-colors hover:text-gold"
+                    aria-label="Close menu"
+                    autoFocus
                   >
-                    Contact Us
-                  </a>
-                  <div>
-                    <p className="eyebrow mb-3">Concierge</p>
-                    {PHONES.map((p) => (
-                      <a
-                        key={p.number}
-                        href={`tel:${p.number.replace(/\s/g, "")}`}
-                        className="block font-serif text-2xl link-underline"
+                    Close ✕
+                  </button>
+                </div>
+                <div className="hairline" />
+                <div className="grid flex-1 gap-12 py-10 md:grid-cols-[1.4fr_1fr] md:py-16">
+                  <ul className="flex flex-col gap-0.5 md:gap-1">
+                    {nav.map((item, i) => (
+                      <motion.li
+                        key={item.label}
+                        initial={reduce ? { opacity: 0 } : { opacity: 0, x: -40 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, delay: 0.2 + i * 0.045, ease: [0.16, 1, 0.3, 1] }}
                       >
-                        {p.number}
-                      </a>
+                        <Link href={item.href} className="group flex items-baseline gap-5 py-1.5">
+                          <span className="font-sans text-[11px] tracking-[0.3em] text-gold/50">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <span className="font-serif text-4xl text-noir transition-all duration-500 group-hover:italic group-hover:text-gold md:text-6xl">
+                            {item.label}
+                          </span>
+                        </Link>
+                      </motion.li>
                     ))}
-                    <a href={`mailto:${EMAIL}`} className="mt-2 block font-sans text-sm text-noir/70 link-underline">
-                      {EMAIL}
+                  </ul>
+                  <motion.aside
+                    initial={reduce ? { opacity: 0 } : { opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.55 }}
+                    className="flex flex-col gap-8 self-end"
+                  >
+                    <a
+                      href={contactHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-fit items-center justify-center rounded-[6px] bg-gold px-8 py-4 font-sans text-[11px] uppercase tracking-[0.3em] text-noir-900 transition-colors duration-500 hover:bg-gold-bright"
+                    >
+                      Contact Us
                     </a>
+                    <div>
+                      <p className="eyebrow mb-3">Concierge</p>
+                      {PHONES.map((p) => (
+                        <a
+                          key={p.number}
+                          href={`tel:${p.number.replace(/\s/g, "")}`}
+                          className="block font-serif text-2xl link-underline"
+                        >
+                          {p.number}
+                        </a>
+                      ))}
+                      <a href={`mailto:${EMAIL}`} className="mt-2 block font-sans text-sm text-noir/70 link-underline">
+                        {EMAIL}
+                      </a>
+                    </div>
+                    <div>
+                      <p className="eyebrow mb-3">Follow</p>
+                      <p className="font-serif text-xl text-noir/90">{INSTAGRAM_HANDLE}</p>
+                    </div>
+                    <div>
+                      <p className="eyebrow mb-3">Office</p>
+                      <p className="font-serif text-lg text-noir/90">{LOCATION}</p>
+                    </div>
+                  </motion.aside>
                   </div>
-                  <div>
-                    <p className="eyebrow mb-3">Follow</p>
-                    <p className="font-serif text-xl text-noir/90">{INSTAGRAM_HANDLE}</p>
-                  </div>
-                  <div>
-                    <p className="eyebrow mb-3">Office</p>
-                    <p className="font-serif text-lg text-noir/90">{LOCATION}</p>
-                  </div>
-                </motion.aside>
               </div>
             </div>
           </motion.div>
