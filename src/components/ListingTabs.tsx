@@ -1,6 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import Link from "next/link";
+
+const tabs = [
+  { key: "amenities", label: "Amenities" },
+  { key: "services", label: "Services" },
+  { key: "where", label: "Where We Are" },
+  { key: "distances", label: "Distances" },
+] as const;
+
+type TabKey = (typeof tabs)[number]["key"];
 
 // Tabbed info block, mirroring MADE's detail page (Amenities / Services / Where We Are
 // / Distances) in our design.
@@ -15,24 +24,47 @@ export default function ListingTabs({
   location: string;
   distance?: string;
 }) {
-  const tabs = [
-    { key: "amenities", label: "Amenities" },
-    { key: "services", label: "Services" },
-    { key: "where", label: "Where We Are" },
-    { key: "distances", label: "Distances" },
-  ] as const;
-  const [active, setActive] = useState<(typeof tabs)[number]["key"]>("amenities");
+  const uid = useId();
+  const [active, setActive] = useState<TabKey>("amenities");
+  const listRef = useRef<HTMLDivElement>(null);
+
+  const tabId = (key: TabKey) => `${uid}-tab-${key}`;
+  const panelId = (key: TabKey) => `${uid}-panel-${key}`;
+
+  // role="tablist" promises arrow-key navigation: screen readers announce "tab, 1 of 4"
+  // and users expect Left/Right to move between them, Home/End to jump to the ends.
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const from = tabs.findIndex((t) => t.key === active);
+    let next: number | null = null;
+    if (e.key === "ArrowRight") next = (from + 1) % tabs.length;
+    else if (e.key === "ArrowLeft") next = (from - 1 + tabs.length) % tabs.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = tabs.length - 1;
+    if (next === null) return;
+    e.preventDefault();
+    setActive(tabs[next].key);
+    listRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
+  };
 
   return (
     <div>
-      <div role="tablist" className="flex flex-wrap gap-x-8 gap-y-2 border-b border-pearl">
+      <div
+        role="tablist"
+        ref={listRef}
+        onKeyDown={onKeyDown}
+        className="flex flex-wrap gap-x-8 gap-y-2 border-b border-pearl"
+      >
         {tabs.map((t) => {
           const on = active === t.key;
           return (
             <button
               key={t.key}
+              id={tabId(t.key)}
               role="tab"
               aria-selected={on}
+              aria-controls={panelId(t.key)}
+              // Roving tabindex: the tablist is one Tab stop, arrows move within it.
+              tabIndex={on ? 0 : -1}
               onClick={() => setActive(t.key)}
               className={`relative pb-4 font-sans text-[11px] uppercase tracking-[0.3em] transition-colors ${
                 on ? "text-noir" : "text-noir/40 hover:text-noir/70"
@@ -45,7 +77,13 @@ export default function ListingTabs({
         })}
       </div>
 
-      <div className="pt-8 md:pt-10">
+      <div
+        role="tabpanel"
+        id={panelId(active)}
+        aria-labelledby={tabId(active)}
+        tabIndex={0}
+        className="pt-8 md:pt-10 focus:outline-none"
+      >
         {active === "amenities" && (
           <ul className="grid grid-cols-1 gap-x-10 gap-y-3.5 sm:grid-cols-2 lg:grid-cols-3">
             {amenities.map((a) => (
