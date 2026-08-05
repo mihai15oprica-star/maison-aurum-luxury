@@ -56,10 +56,10 @@ export default function ListingsView({
   return (
     <>
       {/* Header band */}
-      <section className="relative flex h-[52svh] min-h-[380px] w-full items-end overflow-hidden pt-16">
+      <section className="relative flex h-[54svh] min-h-[400px] w-full items-end overflow-hidden pt-16">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cfg.hero})` }} aria-hidden="true" />
         <div className="absolute inset-0 hero-scrim" />
-        <div className="container-luxe relative pb-12">
+        <div className="container-luxe relative pb-24 md:pb-28">
           {lockedDestination ? (
             <Link href={`/${lockedDestination}`} className="eyebrow mb-4 inline-block link-underline">
               ← {destName}

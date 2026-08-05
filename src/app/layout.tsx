@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import RouteTransition from "@/components/RouteTransition";
@@ -48,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <SmoothScroll />
-        <CustomCursor />
         <Nav />
         <RouteTransition>
           <main id="main" tabIndex={-1} className="outline-none">

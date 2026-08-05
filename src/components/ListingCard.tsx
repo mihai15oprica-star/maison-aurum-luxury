@@ -1,12 +1,11 @@
 import Link from "next/link";
 import type { Listing } from "@/data/listings";
 
-// Single listing card: image, badge, name, location, distance, quick stats, and a
-// "Show More" link to the detail route (/{category}/{slug}). Detail vs. modal is
-// TBD-8 — implemented here as a simple dynamic route.
+// Single listing card — the WHOLE card links to the detail route (/{category}/{slug}).
+// "View" is just a visual affordance, not a separate link.
 export default function ListingCard({ listing: l }: { listing: Listing }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden card-luxe">
+    <Link href={`/${l.category}/${l.slug}`} className="group flex h-full flex-col overflow-hidden card-luxe">
       <div className="relative aspect-[4/3] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
@@ -35,13 +34,11 @@ export default function ListingCard({ listing: l }: { listing: Listing }) {
           ))}
         </div>
 
-        <Link
-          href={`/${l.category}/${l.slug}`}
-          className="mt-6 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold link-underline"
-        >
-          Show More <span aria-hidden>→</span>
-        </Link>
+        <span className="mt-6 inline-flex items-center gap-3 font-sans text-[11px] uppercase tracking-[0.3em] text-gold">
+          View
+          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </span>
       </div>
-    </article>
+    </Link>
   );
 }
