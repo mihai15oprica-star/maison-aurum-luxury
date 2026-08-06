@@ -75,15 +75,17 @@
     @apply max-w-[680px];
   }
 
-  /* eyebrow / section label: gold-label #7A5F1E for AA (4.5:1) on ivory/cream/white */
+  /* eyebrow / section label: gold-label #7A5F1E for AA (4.5:1) on ivory/cream/white.
+     Jost is a geometric sans with near-circular bowls, so tracked uppercase needs a
+     hair more room than Inter did to stop the O and C closing up. */
   .eyebrow {
-    @apply text-[11px] font-sans uppercase tracking-[0.3em];
+    @apply text-[11px] font-sans font-medium uppercase tracking-[0.32em];
     color: var(--gold-label);
   }
 
   /* editorial section label: numeral + thin gold rule + tracked overline */
   .section-label {
-    @apply inline-flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.3em];
+    @apply inline-flex items-center gap-4 font-sans font-medium text-[11px] uppercase tracking-[0.32em];
     color: var(--gold-label);
   }
   .section-label::before {
@@ -93,20 +95,39 @@
     background: var(--gold);
   }
 
-  .display-1 {
-    @apply font-serif text-[clamp(3rem,8vw,6.5rem)] leading-[0.98] tracking-[-0.03em];
+  /* Display scale — Bodoni Moda.
+     Its stroke contrast is far higher than Playfair's, so it needs weight 600 to
+     hold presence at these sizes and tighter tracking to stop the sharp serifs
+     drifting apart. These are the values the client approved.
+
+     Every serif heading on the site goes through one of these four steps. Keep it
+     that way: headings that set their own clamp sizes bypass these corrections and
+     silently render at weight 400, which is how Bodoni ends up looking thin and
+     unfinished. */
+
+  /* The oversized moment — destination names on the home selector, nothing else. */
+  .display-hero {
+    @apply font-serif font-semibold text-[clamp(3rem,10vw,8rem)] leading-[0.95] tracking-[-0.04em];
   }
 
+  .display-1 {
+    @apply font-serif font-semibold text-[clamp(3rem,8vw,6.5rem)] leading-[0.98] tracking-[-0.035em];
+  }
+
+  /* Min lowered from 3rem: this step also carries the home h1, which at 48px on a
+     phone crowded the destination list underneath it. */
   .display-2 {
-    @apply font-serif text-[clamp(3rem,5vw,4rem)] leading-[1.1] tracking-[-0.025em];
+    @apply font-serif font-semibold text-[clamp(2.25rem,5vw,4rem)] leading-[1.1] tracking-[-0.032em];
   }
 
   .display-3 {
-    @apply font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.02em];
+    @apply font-serif font-semibold text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.08] tracking-[-0.026em];
   }
 
+  /* Jost sets a touch larger than Inter at the same px and has shorter
+     descenders, so it comes down slightly and tightens its leading. */
   .body-lg {
-    @apply font-sans text-[17px] leading-[1.85] max-w-[620px];
+    @apply font-sans text-[16.5px] leading-[1.78] max-w-[620px];
     color: var(--text-secondary);
   }
 

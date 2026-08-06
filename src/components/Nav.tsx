@@ -12,7 +12,7 @@ function Wordmark({ compact = false }: { compact?: boolean }) {
     <span className="flex flex-col items-center leading-none">
       <span
         className={cn(
-          "font-serif tracking-[0.02em] text-noir",
+          "font-logo tracking-[0.02em] text-noir",
           compact ? "text-[28px]" : "text-[32px] md:text-[40px]"
         )}
       >

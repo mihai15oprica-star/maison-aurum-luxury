@@ -40,7 +40,7 @@ export default function DestinationSelector() {
         {/* Slogan */}
         <div className="mb-10 text-center md:mb-16">
           <p className="eyebrow mb-5">{brand.name} · {brand.since}</p>
-          <h1 className="mx-auto max-w-3xl font-serif text-[clamp(1.9rem,4.5vw,3.5rem)] leading-[1.08] tracking-[-0.02em] text-noir text-balance">
+          <h1 className="display-2 mx-auto max-w-3xl text-noir text-balance">
             Where daydreams <span className="italic gold-text">become reality.</span>
           </h1>
           <p className="mt-6 font-sans text-[11px] uppercase tracking-[0.4em] text-noir/50">
@@ -64,7 +64,7 @@ export default function DestinationSelector() {
               >
                 <span
                   className={cn(
-                    "block font-serif text-[clamp(3rem,10vw,8rem)] leading-[0.95] tracking-[-0.03em] transition-all duration-500",
+                    "display-hero block transition-all duration-500",
                     dim ? "text-noir/25" : "text-noir",
                     active === d.slug && "italic gold-text"
                   )}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Bodoni_Moda, Jost, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
@@ -7,19 +7,37 @@ import Footer from "@/components/Footer";
 import RouteTransition from "@/components/RouteTransition";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-const playfair = Playfair_Display({
+// Brand typography — direction A, "Italian fashion house", approved by the client
+// 06.08.2026. Bodoni Moda carries the headings, Jost the running text.
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
+  // Next has no metrics for Bodoni Moda, so it cannot generate size-adjust
+  // overrides and warns on every build. Opt out and pick the fallback by hand:
+  // Times is a far closer match for a Didone's proportions than Georgia, whose
+  // larger x-height and heavier strokes make the swap obvious.
+  adjustFontFallback: false,
+  fallback: ["Times New Roman", "Times", "serif"],
 });
 
-const inter = Inter({
+const jost = Jost({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
+});
+
+// The wordmark has its own role rather than inheriting --font-display: the client
+// approved direction A for the site but rejected the logo, so the two have to be
+// able to move independently. Still Playfair until the logo direction is settled.
+const logo = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-logo",
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -38,7 +56,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${bodoni.variable} ${jost.variable} ${logo.variable}`}>
       <body className="font-sans antialiased bg-white text-noir">
         <a
           href="#main"

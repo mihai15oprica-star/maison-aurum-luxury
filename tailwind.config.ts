@@ -48,8 +48,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["var(--font-display)", "Playfair Display", "serif"],
-        sans: ["var(--font-body)", "Inter", "system-ui", "sans-serif"],
+        serif: ["var(--font-display)", "Bodoni Moda", "serif"],
+        sans: ["var(--font-body)", "Jost", "system-ui", "sans-serif"],
+        // Separate role: the wordmark does not follow the display face.
+        logo: ["var(--font-logo)", "Playfair Display", "serif"],
       },
       letterSpacing: {
         widest: "0.35em",

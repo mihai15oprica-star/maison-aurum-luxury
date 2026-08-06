@@ -30,7 +30,7 @@ export default function Footer() {
           {/* Slogan + Contact */}
           <div className="md:col-span-5">
             <p className={`${label} mb-6`}>{brand.name}</p>
-            <h2 className="mb-8 font-serif text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] tracking-[-0.02em] text-white">
+            <h2 className="display-3 mb-8 text-white">
               Where daydreams <span className="italic text-gold">become reality.</span>
             </h2>
             <WhatsAppButton variant="inline" label="Contact Us" />
