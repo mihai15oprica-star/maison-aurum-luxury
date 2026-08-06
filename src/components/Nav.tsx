@@ -13,12 +13,14 @@ function Wordmark({ compact = false }: { compact?: boolean }) {
       <span
         className={cn(
           "font-serif tracking-[0.02em] text-noir",
-          compact ? "text-2xl" : "text-[26px] md:text-[30px]"
+          compact ? "text-[28px]" : "text-[32px] md:text-[40px]"
         )}
       >
-        Bab<span className="gold-text">oó</span>
+        Bab<span className="metal-gold">oó</span>
       </span>
-      <span className="mt-1 font-sans text-[8px] uppercase tracking-[0.4em] text-[#6B6258]">
+      {/* text-indent cancels the trailing letter-space, which otherwise pushes
+          the tagline off the wordmark's optical centre. */}
+      <span className="mt-1.5 indent-[0.42em] font-sans text-[7px] uppercase tracking-[0.42em] text-[#6B6258]">
         {brand.since}
       </span>
     </span>

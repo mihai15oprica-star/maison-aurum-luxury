@@ -124,6 +124,35 @@
     animation: shimmer 8s linear infinite;
   }
 
+  /* Polished gold foil for the wordmark. Not a horizontal sweep like
+     .gold-text: dark shoulders with a bright specular band held off-centre and
+     angled a few degrees off vertical, which is what makes it read as metal
+     rather than as a gradient.
+
+     Two variants, because real foil behaves the same way — the bright band that
+     makes metal sing on noir turns thin strokes invisible on white, so light
+     grounds get the same structure with its lightness capped. */
+  .metal-gold {
+    background: linear-gradient(172deg,
+      #5E4410 0%, #7E5F1C 10%, #A2812F 24%, #C7A94F 38%,
+      #DCC57E 45%, #BE9C41 53%, #9C7A2A 66%, #74581A 80%,
+      #56400E 92%, #8F7328 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .metal-gold-on-noir {
+    background: linear-gradient(172deg,
+      #7A5A18 0%, #A9853A 10%, #D8BC6E 24%, #F6E6AE 38%,
+      #FFF8D8 45%, #EAD292 53%, #C2A046 66%, #93712A 80%,
+      #6E5316 92%, #B99A44 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
   .hairline {
     @apply h-px w-full bg-gradient-to-r from-transparent via-gold to-transparent;
   }
