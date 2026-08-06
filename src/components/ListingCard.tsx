@@ -1,16 +1,31 @@
 import Link from "next/link";
-import type { Listing } from "@/data/listings";
+import Image from "next/image";
+import { listingAlt, type Listing } from "@/data/listings";
 
 // Single listing card — the WHOLE card links to the detail route (/{category}/{slug}).
 // "View" is just a visual affordance, not a separate link.
-export default function ListingCard({ listing: l }: { listing: Listing }) {
+//
+// `priority` marks the cards above the fold so their photos are not lazy-loaded;
+// the grid's first row is the LCP candidate.
+export default function ListingCard({
+  listing: l,
+  priority = false,
+}: {
+  listing: Listing;
+  priority?: boolean;
+}) {
   return (
     <Link href={`/${l.category}/${l.slug}`} className="group flex h-full flex-col overflow-hidden card-luxe">
       <div className="relative aspect-[4/3] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.4s] group-hover:scale-110"
-          style={{ backgroundImage: `url(${l.image})` }}
-          aria-hidden="true"
+        {/* sizes mirrors the grid below: 1 column, 2 from sm, 3 from lg. Without it
+            next/image assumes 100vw and ships a phone the desktop-width file. */}
+        <Image
+          src={l.image}
+          alt={listingAlt(l)}
+          fill
+          priority={priority}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-[1.4s] group-hover:scale-110"
         />
         {l.badge && (
           <span className="absolute left-4 top-4 bg-noir-900/80 px-3 py-1.5 font-sans text-[9px] uppercase tracking-[0.3em] text-gold backdrop-blur">

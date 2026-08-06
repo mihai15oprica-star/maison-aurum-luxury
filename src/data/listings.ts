@@ -28,6 +28,29 @@ export interface Listing {
   transmission?: string;
 }
 
+/**
+ * Alt text for a listing's lead photo.
+ *
+ * Names the subject and its type rather than being left empty. The card heading
+ * repeats the name, but an empty alt would strip the photo out of image search on
+ * a site whose whole product is the property.
+ */
+export function listingAlt(l: Listing): string {
+  const kind: Record<ListingCategory, string> = {
+    villas: "villa",
+    yachts: "yacht charter",
+    cars: "car hire",
+    "beach-clubs": "beach club",
+  };
+  // Car listings put a service promise in `location` ("Delivered · Ibiza"), so name
+  // the destination instead — "car hire in Delivered · Ibiza" is not a sentence.
+  const place =
+    l.category === "cars"
+      ? destinationList.find((d) => d.slug === l.destination)?.name ?? l.location
+      : l.location;
+  return `${l.name} — ${kind[l.category]} in ${place}`;
+}
+
 export type FilterMatch = "exact" | "min";
 export interface FilterDef {
   key: string; // query-param name

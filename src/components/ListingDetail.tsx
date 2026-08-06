@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ListingTabs from "@/components/ListingTabs";
 import { destinations } from "@/data/destinations";
 import { SOCIALS, INSTAGRAM_HANDLE, whatsappHref, isRealHref } from "@/data/contact";
-import type { Listing, ListingCategory } from "@/data/listings";
+import { listingAlt, type Listing, type ListingCategory } from "@/data/listings";
 
 const categoryLabel: Record<ListingCategory, string> = {
   villas: "Villas",
@@ -32,7 +33,16 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
     <>
       {/* ---- HERO ---- */}
       <section className="relative flex h-[82svh] min-h-[520px] w-full items-end overflow-hidden pt-16">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${l.image})` }} aria-hidden="true" />
+        {/* The hero photo is this page's LCP element, so it loads eagerly at full
+            viewport width rather than being lazy-loaded behind the scrim. */}
+        <Image
+          src={l.image}
+          alt={listingAlt(l)}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 hero-scrim" />
         <div className="container-luxe relative pb-14">
           {l.badge && (

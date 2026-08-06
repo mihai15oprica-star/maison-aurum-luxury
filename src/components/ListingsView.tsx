@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import ListingFilters from "@/components/ListingFilters";
 import ListingCard from "@/components/ListingCard";
@@ -57,7 +58,10 @@ export default function ListingsView({
     <>
       {/* Header band */}
       <section className="relative flex h-[54svh] min-h-[400px] w-full items-end overflow-hidden pt-16">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cfg.hero})` }} aria-hidden="true" />
+        {/* Decorative: the h1 below already carries the meaning, so alt is empty.
+            Still routed through next/image — as a raw background it was the
+            heaviest asset on the page. */}
+        <Image src={cfg.hero} alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 hero-scrim" />
         <div className="container-luxe relative pb-24 md:pb-28">
           {lockedDestination ? (
@@ -85,7 +89,7 @@ export default function ListingsView({
             <div className="grid gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
               {results.map((l, i) => (
                 <Reveal key={l.slug} delay={(i % 3) * 0.06}>
-                  <ListingCard listing={l} />
+                  <ListingCard listing={l} priority={i < 3} />
                 </Reveal>
               ))}
             </div>
