@@ -138,7 +138,7 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
               <WhatsAppButton variant="inline" label="Enquire on WhatsApp" message={enquireMsg} />
               <Link
                 href={`/${l.category}`}
-                className="inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.3em] text-noir/50 link-underline"
+                className="tap-target inline-flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.3em] text-noir/50 link-underline"
               >
                 <span aria-hidden>←</span> Back to {categoryLabel[l.category]}
               </Link>

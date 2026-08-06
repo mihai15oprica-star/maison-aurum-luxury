@@ -19,7 +19,7 @@ export default function MembershipBanner({ destinationName }: { destinationName:
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-sans text-[10px] uppercase tracking-[0.3em] text-white underline decoration-gold underline-offset-4 transition-colors hover:text-gold"
+          className="tap-target font-sans text-[10px] uppercase tracking-[0.3em] text-white underline decoration-gold underline-offset-4 transition-colors hover:text-gold"
         >
           {membership.ctaLabel}
         </a>

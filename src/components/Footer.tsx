@@ -42,7 +42,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((n) => (
                 <li key={n.label}>
-                  <Link href={n.href} className="font-sans text-sm text-white/85 transition-colors duration-300 hover:text-gold">
+                  <Link href={n.href} className="tap-target inline-block font-sans text-sm text-white/85 transition-colors duration-300 hover:text-gold">
                     {n.label}
                   </Link>
                 </li>
@@ -70,11 +70,11 @@ export default function Footer() {
             <div>
               <p className={`${label} mb-3`}>Concierge</p>
               {PHONES.map((p) => (
-                <a key={p.number} href={`tel:${p.number.replace(/\s/g, "")}`} className="block font-sans text-sm text-white/85 transition-colors hover:text-gold">
+                <a key={p.number} href={`tel:${p.number.replace(/\s/g, "")}`} className="tap-target block w-fit font-sans text-sm text-white/85 transition-colors hover:text-gold">
                   {p.number}
                 </a>
               ))}
-              <a href={`mailto:${EMAIL}`} className="mt-1 block font-sans text-sm text-white/85 transition-colors hover:text-gold">
+              <a href={`mailto:${EMAIL}`} className="tap-target mt-1 block w-fit font-sans text-sm text-white/85 transition-colors hover:text-gold">
                 {EMAIL}
               </a>
             </div>
