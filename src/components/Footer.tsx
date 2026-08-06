@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { brand } from "@/data/site";
-import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, SOCIALS } from "@/data/contact";
+import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, SOCIALS, isRealHref } from "@/data/contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const label = "font-sans text-[10px] uppercase tracking-[0.35em] text-gold";
@@ -54,10 +54,14 @@ export default function Footer() {
           <div className="space-y-8 md:col-span-4">
             <div>
               <p className={`${label} mb-3`}>Follow</p>
-              {/* Instagram handle shown large, like MADE */}
-              <a href={SOCIALS.instagram} className="block font-serif text-3xl text-white transition-colors hover:text-gold">
-                {INSTAGRAM_HANDLE}
-              </a>
+              {/* Instagram handle shown large, like MADE. Plain text until TBD-5 lands. */}
+              {isRealHref(SOCIALS.instagram) ? (
+                <a href={SOCIALS.instagram} className="block font-serif text-3xl text-white transition-colors hover:text-gold">
+                  {INSTAGRAM_HANDLE}
+                </a>
+              ) : (
+                <p className="block font-serif text-3xl text-white">{INSTAGRAM_HANDLE}</p>
+              )}
               {/* WhatsApp number shown separately */}
               <p className="mt-2 font-sans text-sm text-white/70">
                 WhatsApp · +{WHATSAPP_NUMBER}
@@ -89,19 +93,34 @@ export default function Footer() {
             © 2026 by BABOÓ
           </p>
           <ul className="flex items-center gap-5">
-            {socials.map((s) => (
-              <li key={s.name}>
-                <a
-                  href={s.href}
-                  aria-label={s.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-gold hover:text-gold"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4">
-                    <path d={s.path} />
-                  </svg>
-                </a>
-              </li>
-            ))}
+            {socials.map((s) => {
+              const icon = (
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="h-4 w-4">
+                  <path d={s.path} />
+                </svg>
+              );
+              const box = "flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/70";
+              return (
+                <li key={s.name}>
+                  {/* Not a link until TBD-5 supplies the profile URL — see isRealHref. */}
+                  {isRealHref(s.href) ? (
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.name}
+                      className={`${box} transition-colors hover:border-gold hover:text-gold`}
+                    >
+                      {icon}
+                    </a>
+                  ) : (
+                    <span role="img" aria-label={s.name} className={box}>
+                      {icon}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

@@ -30,6 +30,19 @@ export const SOCIALS = {
 } as const;
 
 /**
+ * True once a TBD placeholder above has been swapped for a real URL.
+ *
+ * Rendering a placeholder as a link is worse than not linking at all: clicking
+ * href="#" scrolls the page back to the top, rewrites the URL, and burns a history
+ * entry, so the back button goes to the wrong place. Callers render the icon or
+ * handle as plain text until the real destination lands.
+ */
+export function isRealHref(href: string): boolean {
+  const h = href.trim();
+  return h !== "" && h !== "#";
+}
+
+/**
  * Builds a WhatsApp click-to-chat URL. Used by the Contact Us button, the floating
  * button, and every inline CTA. Optionally pre-fills a message.
  */

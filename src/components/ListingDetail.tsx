@@ -2,7 +2,7 @@ import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ListingTabs from "@/components/ListingTabs";
 import { destinations } from "@/data/destinations";
-import { SOCIALS, INSTAGRAM_HANDLE, whatsappHref } from "@/data/contact";
+import { SOCIALS, INSTAGRAM_HANDLE, whatsappHref, isRealHref } from "@/data/contact";
 import type { Listing, ListingCategory } from "@/data/listings";
 
 const categoryLabel: Record<ListingCategory, string> = {
@@ -51,13 +51,26 @@ export default function ListingDetail({ listing: l }: { listing: Listing }) {
             </div>
             {/* social / contact icons, like MADE */}
             <div className="flex items-center gap-3">
-              <a
-                href={SOCIALS.instagram}
-                aria-label={`Baboó on Instagram ${INSTAGRAM_HANDLE}`}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-noir/20 text-noir/70 transition-colors hover:border-gold hover:text-gold"
-              >
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-4 w-4"><path d={IG_PATH} /></svg>
-              </a>
+              {/* Not a link until TBD-5 supplies the profile URL — see isRealHref. */}
+              {isRealHref(SOCIALS.instagram) ? (
+                <a
+                  href={SOCIALS.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Baboó on Instagram ${INSTAGRAM_HANDLE}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-noir/20 text-noir/70 transition-colors hover:border-gold hover:text-gold"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-4 w-4"><path d={IG_PATH} /></svg>
+                </a>
+              ) : (
+                <span
+                  role="img"
+                  aria-label={`Baboó on Instagram ${INSTAGRAM_HANDLE}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-noir/20 text-noir/70"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-4 w-4"><path d={IG_PATH} /></svg>
+                </span>
+              )}
               <a
                 href={whatsappHref(enquireMsg)}
                 target="_blank"
