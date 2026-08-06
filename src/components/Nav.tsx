@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { nav, brand, contactHref } from "@/data/site";
 import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE } from "@/data/contact";
@@ -30,6 +30,8 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const reduce = useReducedMotion();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,14 +46,44 @@ export default function Nav() {
 
   useEffect(() => {
     if (!open) return;
+    // aria-modal promises focus stays in the dialog, but the page behind is still
+    // in the tab order — Tab used to walk out of the panel into content the user
+    // cannot see. Keep focus cycling inside, and hand it back to the trigger on close.
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const panel = panelRef.current;
+      if (!panel) return;
+      const focusables = Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
+      if (!focusables.length) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+      if (!panel.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      }
     };
+    const trigger = triggerRef.current;
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      trigger?.focus();
     };
   }, [open]);
 
@@ -66,6 +98,7 @@ export default function Nav() {
         <nav aria-label="Primary" className="container-luxe grid grid-cols-3 items-center">
           {/* Hamburger — left */}
           <button
+            ref={triggerRef}
             type="button"
             onClick={() => setOpen(true)}
             className="flex w-fit flex-col gap-[5px] p-2 justify-self-start"
@@ -118,7 +151,9 @@ export default function Nav() {
               below the fold are unreachable on short viewports. It sits on a plain
               div because motion.div filters data attributes out.
             */}
-            <div data-lenis-prevent className="h-full overflow-y-auto">
+            {/* Also the focus-trap boundary — the ref cannot live on the motion.div,
+                AnimatePresence reads props.ref off its child and React warns. */}
+            <div ref={panelRef} data-lenis-prevent className="h-full overflow-y-auto">
               <div className="container-luxe flex min-h-full flex-col">
                 <div className="flex items-center justify-between py-5">
                   <Wordmark compact />
