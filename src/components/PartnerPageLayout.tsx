@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { PARTNERS_PUBLISHED } from "@/data/partners";
 import type { Partner } from "@/data/destinations";
 
 type Props = {
@@ -42,30 +43,32 @@ export default function PartnerPageLayout({ eyebrow, title, subtitle, cta, partn
         </div>
       </section>
 
-      {/* Partner grid */}
-      <section className="py-20 md:py-28">
-        <div className="container-luxe">
-          <Reveal>
-            <p className="eyebrow mb-10">— Our trusted partners</p>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4">
-            {partners.map((p, i) => (
-              <Reveal key={i} delay={(i % 4) * 0.05}>
-                <div className="flex aspect-[3/2] items-center justify-center rounded-[3px] border border-pearl bg-cream">
-                  {p.logo ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={p.logo} alt={p.name} className="max-h-12 max-w-[70%] object-contain opacity-80" />
-                  ) : (
-                    <span className="px-2 text-center font-sans text-[11px] uppercase tracking-[0.25em] text-noir/40">
-                      {p.name}
-                    </span>
-                  )}
-                </div>
-              </Reveal>
-            ))}
+      {/* Partner grid — hidden until the real roster lands (PARTNERS_PUBLISHED). */}
+      {PARTNERS_PUBLISHED && (
+        <section className="py-20 md:py-28">
+          <div className="container-luxe">
+            <Reveal>
+              <p className="eyebrow mb-10">— Our trusted partners</p>
+            </Reveal>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 lg:grid-cols-4">
+              {partners.map((p, i) => (
+                <Reveal key={i} delay={(i % 4) * 0.05}>
+                  <div className="flex aspect-[3/2] items-center justify-center rounded-[3px] border border-pearl bg-cream">
+                    {p.logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={p.logo} alt={p.name} className="max-h-12 max-w-[70%] object-contain opacity-80" />
+                    ) : (
+                      <span className="px-2 text-center font-sans text-[11px] uppercase tracking-[0.25em] text-noir/40">
+                        {p.name}
+                      </span>
+                    )}
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

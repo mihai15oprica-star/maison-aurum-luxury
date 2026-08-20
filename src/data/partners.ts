@@ -1,6 +1,18 @@
 import type { Partner, DestinationSlug } from "@/data/destinations";
 import { DESTINATION_SLUGS } from "@/data/destinations";
 
+/**
+ * Whether the partner rosters are real yet.
+ *
+ * They are not: every entry below is a numbered placeholder with no logo and no link,
+ * and a wall of grey tiles reading "IBIZA CLUB 3" tells a visitor the site is
+ * unfinished far more loudly than an absent section does. Every component that
+ * renders partners checks this flag and omits its section entirely.
+ *
+ * TBD-3: flip to true in the same commit that lands the real names, logos and links.
+ */
+export const PARTNERS_PUBLISHED = false;
+
 // Placeholder partner rosters, now PER DESTINATION (Ibiza's clubs ≠ Mykonos's clubs).
 // TBD-3: replace with real partners (names, logos, links) for each destination.
 function make(prefix: string, n: number): Partner[] {

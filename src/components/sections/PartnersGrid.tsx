@@ -1,9 +1,12 @@
 import Reveal from "@/components/Reveal";
 import type { Partner } from "@/data/destinations";
+import { PARTNERS_PUBLISHED } from "@/data/partners";
 
-// "Our Partners" — grid of partner logos. Until real partners arrive, render grey
-// placeholder tiles with the (placeholder) name. TBD-3.
+// "Our Partners" — grid of partner logos. TBD-3.
 export default function PartnersGrid({ partners }: { partners: Partner[] }) {
+  // Hidden until the real roster lands: see PARTNERS_PUBLISHED.
+  if (!PARTNERS_PUBLISHED) return null;
+
   return (
     <section className="relative border-y border-pearl bg-cream py-24 md:py-28">
       <div className="container-luxe">
