@@ -194,7 +194,7 @@ export default function Nav() {
                           <span className="font-sans text-[11px] tracking-[0.3em] text-gold/50">
                             {String(i + 1).padStart(2, "0")}
                           </span>
-                          <span className="font-serif text-4xl text-noir transition-all duration-500 group-hover:italic group-hover:text-gold md:text-6xl">
+                          <span className="font-serif text-4xl text-noir transition-all duration-500 group-hover:italic group-hover:text-gold md:text-5xl lg:text-6xl">
                             {item.label}
                           </span>
                         </Link>
@@ -226,9 +226,11 @@ export default function Nav() {
                           {p.number}
                         </a>
                       ))}
-                      <a href={`mailto:${EMAIL}`} className="mt-2 block font-sans text-sm text-noir/70 link-underline">
-                        {EMAIL}
-                      </a>
+                      {EMAIL && (
+                        <a href={`mailto:${EMAIL}`} className="mt-2 block font-sans text-sm text-noir/70 link-underline">
+                          {EMAIL}
+                        </a>
+                      )}
                     </div>
                     <div>
                       <p className="eyebrow mb-3">Follow</p>

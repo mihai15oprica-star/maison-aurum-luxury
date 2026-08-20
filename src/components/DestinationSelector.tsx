@@ -6,9 +6,13 @@ import { destinationList } from "@/data/destinations";
 import { brand } from "@/data/site";
 import { cn } from "@/lib/cn";
 
-// The "/" welcome selector. Plain white background (per brief / MADE). Desktop:
-// destinations stacked vertically, hovering one reveals its image behind the type.
-// Mobile: a compact image-tile grid so all three fit without excessive scroll.
+// The "/" welcome selector. Plain white background (per brief / MADE).
+//
+// Two layouts, and the split is at lg rather than md on purpose: the desktop one is
+// three words on white that only become a place once you hover them, which needs a
+// pointer. A tablet in portrait has no hover, so at md it showed three plain words
+// stranded in white space and the photography never appeared at all. Anything
+// narrower than a laptop gets the image tiles, where the photograph is simply there.
 export default function DestinationSelector() {
   const [active, setActive] = useState<string | null>(null);
   const reduce = useReducedMotion();
@@ -16,7 +20,7 @@ export default function DestinationSelector() {
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-white pt-24">
       {/* Hover-reveal image layer (desktop). Empty by default → clean white. */}
-      <div className="pointer-events-none absolute inset-0 hidden md:block" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden="true">
         <AnimatePresence>
           {active && (
             <motion.div
@@ -53,8 +57,8 @@ export default function DestinationSelector() {
           </p>
         </div>
 
-        {/* Desktop — vertical stack, hover reveals image */}
-        <div className="hidden flex-col items-center md:flex">
+        {/* Pointer devices — vertical stack, hover reveals the image */}
+        <div className="hidden flex-col items-center lg:flex">
           {destinationList.map((d) => {
             const dim = active !== null && active !== d.slug;
             return (
@@ -83,20 +87,24 @@ export default function DestinationSelector() {
           })}
         </div>
 
-        {/* Mobile — compact image-tile grid; images static, tap navigates */}
-        <div className="grid grid-cols-1 gap-4 md:hidden">
+        {/* Touch / narrow — image tiles; the photograph is always visible, tap navigates.
+            One column at every width below lg: three across a tablet leaves each tile
+            about 230px wide, which wraps "Saint Tropez" onto two lines and squeezes the
+            tagline into three. Full-width tiles that grow with the viewport instead. */}
+        <div className="grid grid-cols-1 gap-4 lg:hidden">
           {destinationList.map((d) => (
             <Link
               key={d.slug}
               href={`/${d.slug}`}
-              className="relative flex h-40 items-end overflow-hidden rounded-[4px]"
+              className="relative flex h-40 items-end overflow-hidden rounded-[4px] sm:h-56 md:h-64"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(${d.selectorImage})` }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-noir/70 via-noir/20 to-transparent" />
+              {/* The Ibiza tile puts its tagline over a low sun; 70% was not enough there. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-noir/85 via-noir/35 to-transparent" />
               <div className="relative p-5">
                 <span className="block font-serif text-3xl text-white">{d.name}</span>
                 <span className="mt-1 block font-sans text-[10px] uppercase tracking-[0.3em] text-white/80">

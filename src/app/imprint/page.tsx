@@ -22,8 +22,7 @@ export default function ImprintPage() {
               {LOCATION}
               {"\n"}
               {PHONES.map((p) => p.number).join(" · ")}
-              {"\n"}
-              {EMAIL}
+              {EMAIL ? `\n${EMAIL}` : ""}
             </address>
           </Reveal>
           <Reveal delay={0.1}>

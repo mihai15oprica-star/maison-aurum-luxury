@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { brand } from "@/data/site";
-import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE, WHATSAPP_NUMBER, SOCIALS, isRealHref } from "@/data/contact";
+import { EMAIL, PHONES, LOCATION, INSTAGRAM_HANDLE, SOCIALS, isRealHref } from "@/data/contact";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const label = "font-sans text-[10px] uppercase tracking-[0.35em] text-gold";
@@ -65,10 +65,6 @@ export default function Footer() {
               ) : (
                 <p className="block font-serif text-3xl text-white">{INSTAGRAM_HANDLE}</p>
               )}
-              {/* WhatsApp number shown separately */}
-              <p className="mt-2 font-sans text-sm text-white/70">
-                WhatsApp · +{WHATSAPP_NUMBER}
-              </p>
             </div>
             <div>
               <p className={`${label} mb-3`}>Concierge</p>
@@ -77,9 +73,11 @@ export default function Footer() {
                   {p.number}
                 </a>
               ))}
-              <a href={`mailto:${EMAIL}`} className="tap-target mt-1 block w-fit font-sans text-sm text-white/85 transition-colors hover:text-gold">
-                {EMAIL}
-              </a>
+              {EMAIL && (
+                <a href={`mailto:${EMAIL}`} className="tap-target mt-1 block w-fit font-sans text-sm text-white/85 transition-colors hover:text-gold">
+                  {EMAIL}
+                </a>
+              )}
             </div>
             <div>
               <p className={`${label} mb-3`}>Office</p>

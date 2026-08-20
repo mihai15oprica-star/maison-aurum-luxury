@@ -1,19 +1,22 @@
 // Single source of truth for all contact details.
 // Everything the client will eventually swap lives here — see TBD markers.
 
-// TBD-1: real WhatsApp number(s) for the Contact Us button + floating button.
-// Digits only, international format, no "+" or spaces (WhatsApp API requirement).
-export const WHATSAPP_NUMBER = "40700000000"; // TBD-1: placeholder Romanian number
+// The concierge line, confirmed by the client 20.08.2026. Digits only, international
+// format, no "+" or spaces — the WhatsApp click-to-chat API rejects anything else.
+export const WHATSAPP_NUMBER = "40721252839";
 
-// TBD-5: real email address.
-export const EMAIL = "info@baboo.com"; // TBD-5
-
-// TBD-5: MADE shows two numbers (one per region). Structured as a list so Baboó can
-// run a single central number or one per destination without touching components.
+// Same line, formatted for display and for the tel: href.
+// Structured as a list so Baboó can add a second number per destination later
+// without touching a single component.
 export const PHONES: { label: string; number: string }[] = [
-  { label: "Central", number: "+40 700 000 000" }, // TBD-5
-  // { label: "Ibiza", number: "+34 000 000 000" }, // TBD-5: add per-destination lines if desired
+  { label: "Concierge", number: "+40 721 252 839" },
+  // { label: "Ibiza", number: "+34 000 000 000" }, // add per-destination lines if desired
 ];
+
+// TBD-5: real email address. Until it exists, nothing renders an address at all —
+// a mailto: that bounces is worse than no address, and this is the one contact
+// detail a visitor cannot verify before they use it.
+export const EMAIL: string | null = null; // TBD-5
 
 // Displayed office location (fixed per brief).
 export const LOCATION = "Bucharest, Romania";
@@ -21,12 +24,13 @@ export const LOCATION = "Bucharest, Romania";
 // TBD-5: real Instagram handle — shown large in the footer, like MADE.
 export const INSTAGRAM_HANDLE = "@baboo"; // TBD-5
 
-// TBD-5: real social profile URLs.
+// TBD-5: real social profile URLs. WhatsApp is live — it is built from the number
+// above rather than being a profile URL someone has to supply.
 export const SOCIALS = {
   instagram: "#", // TBD-5
   tiktok: "#", // TBD-5
   facebook: "#", // TBD-5
-  whatsapp: "#", // TBD-5 (set to whatsappHref() below if you want the icon to open chat)
+  whatsapp: `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`,
 } as const;
 
 /**

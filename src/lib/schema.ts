@@ -24,13 +24,12 @@ export function organisationSchema() {
     image: absoluteUrl("/opengraph-image"),
     address: { "@type": "PostalAddress", addressLocality: "Bucharest", addressCountry: "RO" },
     areaServed: destinationList.map((d) => ({ "@type": "Place", name: d.name })),
-    // Placeholder contact details (TBD-1/TBD-5) are deliberately not published as
-    // structured data: telling Google a fake number is worse than telling it nothing.
+    telephone: PHONES[0].number,
+    // Contact details still outstanding (TBD-5) are deliberately absent rather than
+    // published as placeholders: a fake address in structured data is worse than
+    // none, and unlike prose it is read by machines that cannot tell.
     ...(sameAs.length ? { sameAs } : {}),
-    ...(EMAIL.endsWith("@baboo.com") ? {} : { email: EMAIL }),
-    ...(PHONES[0]?.number.includes("700 000 000")
-      ? {}
-      : { telephone: PHONES[0]?.number }),
+    ...(EMAIL ? { email: EMAIL } : {}),
   };
 }
 
