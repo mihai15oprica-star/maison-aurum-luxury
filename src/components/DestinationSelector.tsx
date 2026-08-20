@@ -22,7 +22,7 @@ export default function DestinationSelector() {
             <motion.div
               key={active}
               initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.06 }}
-              animate={reduce ? { opacity: 0.55 } : { opacity: 0.55, scale: 1 }}
+              animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 bg-cover bg-center"
@@ -32,8 +32,13 @@ export default function DestinationSelector() {
             />
           )}
         </AnimatePresence>
-        {/* white wash keeps type legible over any image */}
-        <div className={cn("absolute inset-0 transition-colors duration-700", active ? "bg-white/45" : "bg-white")} />
+        {/* The photograph carries at full strength and this veil takes it back down,
+            rather than fading the photograph itself: a half-transparent image over
+            white washes out its darks and the picture goes grey, while a white veil
+            over a full-strength image keeps the contrast and only lightens it. 62%
+            is where the three destination names stay comfortably above 4.5:1 on the
+            busiest of the three photographs. */}
+        <div className={cn("absolute inset-0 transition-colors duration-700", active ? "bg-white/[0.62]" : "bg-white")} />
       </div>
 
       <div className="container-luxe relative flex min-h-[calc(100svh-6rem)] flex-col justify-center py-16">
@@ -65,7 +70,9 @@ export default function DestinationSelector() {
                 <span
                   className={cn(
                     "display-hero block transition-all duration-500",
-                    dim ? "text-noir/25" : "text-noir",
+                    // Dimming the other two used to drop them to 25% — legible on
+                    // plain white, invisible once a photograph appears behind them.
+                    dim ? "text-noir/45" : "text-noir",
                     active === d.slug && "italic gold-text"
                   )}
                 >

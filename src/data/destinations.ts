@@ -6,6 +6,14 @@ export interface Partner {
   url?: string; // TBD-3
 }
 
+/**
+ * A destination's own photography.
+ *
+ * All three used to share a single stock image apiece that showed somewhere else
+ * entirely — Saint Tropez was a seaplane in the Maldives — which makes the hover
+ * reveal on "/" actively misleading rather than merely generic. Each image below is
+ * of the place it names. TBD-6 until the commissioned photography arrives.
+ */
 export interface Destination {
   slug: DestinationSlug;
   name: string;
@@ -38,8 +46,10 @@ export const destinations: Record<DestinationSlug, Destination> = {
     slug: "ibiza",
     name: "Ibiza",
     tagline: "The island that never really sleeps.",
-    heroImage: U("1571003123894-1f0594d2b5d9"), // TBD-6
-    selectorImage: U("1571003123894-1f0594d2b5d9", 1200), // TBD-6
+    // Cala San Vicente from the pines above it.
+    heroImage: U("1596377940590-9ac8e3d22b79"), // TBD-6
+    // Sunset over the west-coast cliffs — the island's own postcard.
+    selectorImage: U("1582368312260-04dd28d21248", 1200), // TBD-6
     heroHeadline: "Live your daydream in Ibiza.", // TBD-2
     welcomeText: [
       // TBD-2: final welcome copy for Ibiza
@@ -53,8 +63,10 @@ export const destinations: Record<DestinationSlug, Destination> = {
     slug: "mykonos",
     name: "Mykonos",
     tagline: "Where the Aegean meets the velvet rope.",
-    heroImage: U("1533105079780-92b9be482077"), // TBD-6
-    selectorImage: U("1533105079780-92b9be482077", 1200), // TBD-6
+    // The Kato Mili windmills above Chora.
+    heroImage: U("1653051145435-b13b5563a134"), // TBD-6
+    // Little Venice, where the houses stand in the water.
+    selectorImage: U("1695441396429-0c53cf57c29b", 1200), // TBD-6
     heroHeadline: "Live your daydream in Mykonos.", // TBD-2
     welcomeText: [
       // TBD-2: final welcome copy for Mykonos
@@ -68,8 +80,10 @@ export const destinations: Record<DestinationSlug, Destination> = {
     slug: "saint-tropez",
     name: "Saint Tropez",
     tagline: "The Riviera, at its most golden.",
-    heroImage: U("1512100356356-de1b84283e18"), // TBD-6
-    selectorImage: U("1512100356356-de1b84283e18", 1200), // TBD-6
+    // The Vieux Port from a deck in it.
+    heroImage: U("1744393995459-9ce6752889d6"), // TBD-6
+    // The pastel old town seen from the water.
+    selectorImage: U("1662895450073-0cc13cfc562f", 1200), // TBD-6
     heroHeadline: "Live your daydream in Saint Tropez.", // TBD-2
     welcomeText: [
       // TBD-2: final welcome copy for Saint Tropez
