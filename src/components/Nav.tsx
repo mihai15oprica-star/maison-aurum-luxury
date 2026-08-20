@@ -140,10 +140,21 @@ export default function Nav() {
             role="dialog"
             aria-modal="true"
             aria-label="Site navigation"
-            initial={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 0% 0%)" }}
-            animate={reduce ? { opacity: 1 } : { clipPath: "circle(150% at 0% 0%)" }}
-            exit={reduce ? { opacity: 0 } : { clipPath: "circle(0% at 0% 0%)" }}
-            transition={{ duration: 0.9, ease: [0.85, 0, 0.15, 1] }}
+            /*
+              The panel used to open as a clip-path circle wiping out from the
+              hamburger. Its visibility depended entirely on that one property: the
+              background is opaque and the opacity never moved, so an engine that
+              applies `clip-path: circle(0%)` but declines to animate it leaves the
+              panel mounted, focus-trapped and completely invisible — the menu button
+              looks dead. clip-path is the one exotic property in this path and the
+              least evenly implemented, so the reveal no longer rests on it: opacity
+              and a small scale are honoured everywhere, and if the transition itself
+              were ever dropped the panel would simply appear rather than vanish.
+            */
+            initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.04 }}
+            animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.02 }}
+            transition={{ duration: reduce ? 0.3 : 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-[60] bg-white"
           >
             {/*
