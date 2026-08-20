@@ -30,10 +30,13 @@ the bundle by the compiler, so setting it on a running server changes nothing �
 to be present when `next build` runs. On Vercel that means adding it as a Production
 environment variable and redeploying.
 
-Leaving it unset is deliberate and safe: the site falls back to the per-deploy Vercel
-hostname so preview deployments canonical to themselves rather than to production, and
-`robots.txt` serves `Disallow: /` for anything that is not the production host. The
-same 56 listings indexed under a dozen throwaway hostnames would be pure duplication.
+Leaving it unset is deliberate and safe. The site falls back to the project's stable
+production hostname (`…vercel.app`), or to the per-build hostname on a preview so a
+preview canonicals to itself rather than to production — and `robots.txt` serves
+`Disallow: /` until the variable is set. Setting it *is* the act of saying "this is
+where the site lives"; a production deploy with no domain still only knows a hostname
+that changes on the next build, and inviting Google to index that address is worse
+than not being indexed at all.
 
 ## Where the content lives
 

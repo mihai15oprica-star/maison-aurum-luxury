@@ -12,7 +12,14 @@ function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (explicit) return explicit.replace(/\/+$/, "");
 
-  // Vercel exposes the deployment host without a scheme, and only at build/run time.
+  // The project's stable production hostname (maison-aurum-luxury.vercel.app). Every
+  // deploy keeps it, unlike VERCEL_URL.
+  const projectHost = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim();
+  if (projectHost) return `https://${projectHost.replace(/\/+$/, "")}`;
+
+  // Last resort: the hostname of this specific deployment. It is unique per build —
+  // maison-aurum-luxury-2sx0hjlop-….vercel.app — so a preview canonicals to itself
+  // rather than to production, which is what a preview should do.
   const vercel = process.env.NEXT_PUBLIC_VERCEL_URL?.trim() || process.env.VERCEL_URL?.trim();
   if (vercel) return `https://${vercel.replace(/\/+$/, "")}`;
 
@@ -22,11 +29,16 @@ function resolveSiteUrl(): string {
 export const SITE_URL = resolveSiteUrl();
 
 /**
- * True only for the real production domain. Preview and local builds must not be
- * indexed — otherwise the same 56 listings exist on a dozen hostnames.
+ * Whether this build knows a stable, intended public address for itself — the only
+ * condition under which it is safe to invite crawlers.
+ *
+ * Deliberately NOT `VERCEL_ENV === "production"`. A production deploy with no domain
+ * configured still only knows a per-build hostname, and opening that to crawlers asks
+ * Google to index an address that dies at the next deploy, then hands it a canonical
+ * pointing at the same doomed URL. Setting NEXT_PUBLIC_SITE_URL is the act of saying
+ * "this is where the site lives" — until someone does, nothing gets indexed.
  */
-export const IS_PRODUCTION_HOST =
-  process.env.VERCEL_ENV === "production" || !!process.env.NEXT_PUBLIC_SITE_URL;
+export const IS_PRODUCTION_HOST = !!process.env.NEXT_PUBLIC_SITE_URL;
 
 /** Absolute URL for a site-relative path, e.g. `/villas` → `https://…/villas`. */
 export function absoluteUrl(path = "/"): string {
