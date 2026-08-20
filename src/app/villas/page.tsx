@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import ListingsView from "@/components/ListingsView";
 
-export const metadata = { title: "Villas" };
+export const metadata: Metadata = {
+  title: "Villas",
+  description:
+    "Private villas and estates in Ibiza, Mykonos and Saint Tropez — inspected, photographed and booked through Baboó. Filter by destination, bedrooms and guests.",
+  // Filters live in the query string and render this same page with a narrowed
+  // grid, so every filtered URL points search engines back here.
+  alternates: { canonical: "/villas" },
+};
 
 type SearchParams = Record<string, string | string[] | undefined>;
 

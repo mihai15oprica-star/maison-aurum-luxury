@@ -27,6 +27,14 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   return {
     title: `${d.name} — Luxury Concierge`,
     description: d.welcomeText[0],
+    alternates: { canonical: `/${d.slug}` },
+    openGraph: {
+      title: `${d.name} — Baboó Luxury Concierge`,
+      description: d.tagline,
+      type: "website",
+      url: `/${d.slug}`,
+      images: [{ url: d.heroImage, alt: `${d.name} — ${d.tagline}` }],
+    },
   };
 }
 

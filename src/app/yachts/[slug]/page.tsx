@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import ListingDetail from "@/components/ListingDetail";
 import { findListing, listingsByCategory } from "@/data/listings";
+import { listingMetadata } from "@/lib/listing-meta";
 
 export function generateStaticParams() {
   return listingsByCategory("yachts").map((l) => ({ slug: l.slug }));
@@ -9,7 +10,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const l = findListing("yachts", params.slug);
-  return { title: l ? l.name : "Yachts" };
+  return l ? listingMetadata(l, `/yachts/${l.slug}`) : { title: "Yachts" };
 }
 
 export default function Page({ params }: { params: { slug: string } }) {

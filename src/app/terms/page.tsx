@@ -1,7 +1,7 @@
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
-export const metadata = { title: "Terms" };
+export const metadata = { title: "Terms", alternates: { canonical: "/terms" } };
 
 export default function TermsPage() {
   return (

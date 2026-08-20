@@ -13,7 +13,7 @@ const principles = [
   { n: "04", t: "Devotion", b: "The same concierge, season after season — someone who learns exactly how you like to travel." },
 ];
 
-export const metadata = { title: "About" };
+export const metadata = { title: "About", alternates: { canonical: "/about" } };
 
 export default function AboutPage() {
   return (

@@ -1,7 +1,7 @@
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 
-export const metadata = { title: "Privacy" };
+export const metadata = { title: "Privacy", alternates: { canonical: "/privacy" } };
 
 export default function PrivacyPage() {
   return (

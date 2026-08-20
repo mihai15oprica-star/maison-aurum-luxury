@@ -24,7 +24,13 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   const v = resolve(params.destination, params.category);
   if (!v) return {};
   const label = params.category.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase());
-  return { title: `${destinations[v.dest].name} — ${label}` };
+  return {
+    title: `${destinations[v.dest].name} — ${label}`,
+    description: `${label} in ${destinations[v.dest].name}, curated and booked by Baboó.`,
+    // Same page as the unfiltered category with the destination locked; the filter
+    // params on top of it are not separate documents.
+    alternates: { canonical: `/${v.dest}/${v.cat}` },
+  };
 }
 
 export default function Page({ params, searchParams }: { params: Params; searchParams: SearchParams }) {

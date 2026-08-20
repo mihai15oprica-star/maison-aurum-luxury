@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import { brand } from "@/data/site";
 import { LOCATION, PHONES, EMAIL } from "@/data/contact";
 
-export const metadata = { title: "Imprint" };
+export const metadata = { title: "Imprint", alternates: { canonical: "/imprint" } };
 
 export default function ImprintPage() {
   return (

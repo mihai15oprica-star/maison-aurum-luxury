@@ -1,7 +1,7 @@
 import PartnerPageLayout from "@/components/PartnerPageLayout";
 import { clubPartners } from "@/data/partners";
 
-export const metadata = { title: "Clubs" };
+export const metadata = { title: "Clubs", alternates: { canonical: "/clubs" } };
 
 export default function Page() {
   return (
