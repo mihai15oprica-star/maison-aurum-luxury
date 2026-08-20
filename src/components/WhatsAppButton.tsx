@@ -20,7 +20,7 @@ type Props = {
 
 // Single component used both as the always-on floating button and as an inline CTA.
 // Links straight to WhatsApp — never a form (mirrors MADE). Number is centralised in
-// contact.ts (TBD-1).
+// contact.ts.
 export default function WhatsAppButton({ variant, label = "Contact Us", message, className }: Props) {
   const href = whatsappHref(message);
 

@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </RouteTransition>
         <Footer />
-        {/* Floating WhatsApp — fixed, visible on every page (TBD-1 number) */}
+        {/* Floating WhatsApp — fixed, visible on every page */}
         <WhatsAppButton variant="floating" />
       </body>
     </html>
