@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { brand } from "@/data/site";
+import { loadOgFont } from "@/lib/og-font";
 
 export const alt = "Baboó — luxury concierge for Ibiza, Mykonos and Saint Tropez";
 export const size = { width: 1200, height: 630 };
@@ -9,33 +10,6 @@ const NOIR = "#1a1208";
 const GOLD = "#c9a84c";
 const GOLD_LIGHT = "#e8d5a3";
 
-/**
- * Loads a Google font as TrueType.
- *
- * Satori (what `next/og` renders with) cannot read woff2, which is the only format
- * `next/font` keeps on disk — so the OG card fetches its own copy. A stale User-Agent
- * is what makes the CSS endpoint answer with `format('truetype')` instead.
- *
- * Returns null rather than throwing: a build with no network should still produce a
- * card in Satori's built-in font, not fail the whole build over a picture.
- */
-async function loadFont(family: string, weight: number, text: string) {
-  try {
-    const css = await fetch(
-      `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:wght@${weight}&text=${encodeURIComponent(text)}`,
-      { headers: { "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8)" } }
-    ).then((r) => r.text());
-
-    const url = css.match(/src: url\((.+?)\) format\('truetype'\)/)?.[1];
-    if (!url) return null;
-
-    const data = await fetch(url).then((r) => r.arrayBuffer());
-    return { name: family, data, weight: weight as 400 | 500, style: "normal" as const };
-  } catch {
-    return null;
-  }
-}
-
 // Static: one card for the whole site, baked at build time.
 export default async function Image() {
   const wordmark = brand.name;
@@ -43,10 +17,10 @@ export default async function Image() {
   const places = "IBIZA · MYKONOS · SAINT TROPEZ";
 
   const [serif, sans] = await Promise.all([
-    loadFont("Playfair Display", 500, wordmark),
-    loadFont("Jost", 400, `${tagline}${places}`),
+    loadOgFont("Playfair Display", 500, wordmark),
+    loadOgFont("Jost", 400, `${tagline}${places}`),
   ]);
-  const fonts = [serif, sans].filter(Boolean) as NonNullable<Awaited<ReturnType<typeof loadFont>>>[];
+  const fonts = [serif, sans].filter((f): f is NonNullable<typeof f> => f !== null);
 
   return new ImageResponse(
     (
