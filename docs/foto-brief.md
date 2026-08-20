@@ -6,12 +6,21 @@
 Site-ul are deja **44 din 56** de fotografii de listing. Lipsesc **12**: toate cele
 6 mașini și toate cele 6 beach clubs. Vilele (30) și iahturile (14) sunt complete.
 
+Cele 12 locuri goale au acum câte o poză de stock, aleasă să se potrivească cu mașina
+sau cu locul, ca site-ul să arate întreg până vin ale tale. Sunt provizorii.
+
 ---
 
 ## 1. Cele 12 fotografii care lipsesc
 
 Fiecare fișier se numește **exact ca slug-ul din tabel**, cu extensia `.jpg`, și se
-pune în `public/listings/`. Nu e nevoie de altă modificare — intră singure în site.
+pune în `public/listings/`.
+
+> **Notă pentru cine pune pozele în cod:** cele 12 sunt singurele care mai au o poză de
+> stock scrisă explicit în `src/data/listings.ts` (tabelul `PLACEHOLDER_PHOTO`). După ce
+> pui fișierele în `public/listings/`, șterge tabelul și pune `image: "/listings/<slug>.jpg"`
+> pe fiecare din cele 12 linii, ca la vile și iahturi. Testul din `test/data-integrity.test.ts`
+> verifică apoi că fiecare fișier chiar există.
 
 ### Mașini (6)
 

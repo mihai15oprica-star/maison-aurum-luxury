@@ -75,11 +75,40 @@ const IMG = {
   villa2: "1512917774080-9991f1c4c750",
   yacht: "1605281317010-fe5ffe798166",
   yacht2: "1567899378494-47b22a2ae96a",
+  // Category-page hero bands only. The cards below carry their own photo each.
   car: "1503376780353-7e6692767b70",
-  car2: "1544636331-e26879cd4d9b",
   beach: "1544551763-46a013bb70d5",
-  beach2: "1520250497591-112f2f40a3f4",
 };
+
+/**
+ * Stand-in photography for the twelve cars and beach clubs, one distinct image each.
+ *
+ * The six cars and six beach clubs shared two stock photos between them, so /cars
+ * showed the same two vehicles three times over and no card told you which car it
+ * was. These are matched to the actual model and to the destination's register
+ * instead. Still placeholders — see docs/foto-brief.md for the twelve commissioned
+ * shots that replace them, keyed by slug. TBD-3.
+ *
+ * When those land in public/listings/, delete this table and give each of the twelve
+ * `image: "/listings/<slug>.jpg"` like the villas and yachts — the photos do not swap
+ * themselves in. test/data-integrity.test.ts then checks each file is really there.
+ */
+const PLACEHOLDER_PHOTO: Record<string, string> = {
+  "car-huracan-ibz": "1742800074526-cc655bf036a4", // blue Huracán, three-quarter
+  "car-defender-ibz": "1741905358565-5ae6835ac172", // black Defender, head-on
+  "car-mini-myk": "1731471922512-5a49cc0571b4", // red Mini Moke, head-on
+  "car-gwagon-myk": "1756704756051-9aa48231c440", // black G-Class against a building
+  "car-ferrari-st": "1642056095922-7ade96f52674", // red Ferrari on a street
+  "car-bentley-st": "1749215530386-e011171450df", // pale-blue Continental GT
+  "bc-blue-marlin": "1661167207458-8ba64ca2a780", // club terrace under umbrellas
+  "bc-experimental": "1689825199899-c57cc46c2a9a", // beach loungers from above
+  "bc-nammos": "1471085507142-12355181f804", // straw parasols on a Greek bay
+  "bc-scorpios": "1723608703353-33e9a8284690", // white tables over the water
+  "bc-club55": "1560611926-eaafc406e460", // wicker parasols and daybeds
+  "bc-nikki": "1560611432-1931a60a28a1", // white loungers on the sand
+};
+
+const P = (slug: string) => U(PLACEHOLDER_PHOTO[slug]);
 
 export interface CategoryConfig {
   category: ListingCategory;
@@ -280,20 +309,20 @@ export const listings: Listing[] = [
   { slug: "my-twins", category: "yachts", destination: "saint-tropez", name: "M/Y Twins", image: "/listings/my-twins.jpg", location: "Port de Saint-Tropez", boatType: "Motor Yacht", capacity: 11, stats: [{ label: "Length", value: "28.5 m" }, { label: "Guests", value: "11" }, { label: "Cabins", value: "5" }] }, // princesscharteryachts.com/products/m-y-twins-yacht-charter-amalfi-coast
 
   // ---- CARS ----
-  { slug: "car-huracan-ibz", category: "cars", destination: "ibiza", name: "Lamborghini Huracán", image: U(IMG.car), location: "Delivered · Ibiza", carType: "Sports", transmission: "Automatic", badge: "HIGH DEMAND", stats: [{ label: "Seats", value: "2" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "640 hp" }] },
-  { slug: "car-defender-ibz", category: "cars", destination: "ibiza", name: "Land Rover Defender", image: U(IMG.car2), location: "Delivered · Ibiza", carType: "SUV", transmission: "Automatic", stats: [{ label: "Seats", value: "5" }, { label: "Gearbox", value: "Auto" }, { label: "Drive", value: "4x4" }] },
-  { slug: "car-mini-myk", category: "cars", destination: "mykonos", name: "Mini Moke Cabrio", image: U(IMG.car), location: "Delivered · Mykonos", carType: "Convertible", transmission: "Manual", badge: "SELLING FAST", stats: [{ label: "Seats", value: "4" }, { label: "Gearbox", value: "Manual" }, { label: "Roof", value: "Open" }] },
-  { slug: "car-gwagon-myk", category: "cars", destination: "mykonos", name: "Mercedes-AMG G 63", image: U(IMG.car2), location: "Delivered · Mykonos", carType: "SUV", transmission: "Automatic", stats: [{ label: "Seats", value: "5" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "585 hp" }] },
-  { slug: "car-ferrari-st", category: "cars", destination: "saint-tropez", name: "Ferrari Portofino", image: U(IMG.car), location: "Delivered · Saint Tropez", carType: "Convertible", transmission: "Automatic", badge: "SIGNATURE PICK", stats: [{ label: "Seats", value: "2+2" }, { label: "Gearbox", value: "Auto" }, { label: "Roof", value: "Retractable" }] },
-  { slug: "car-bentley-st", category: "cars", destination: "saint-tropez", name: "Bentley Continental GT", image: U(IMG.car2), location: "Delivered · Saint Tropez", carType: "Sedan", transmission: "Automatic", stats: [{ label: "Seats", value: "4" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "650 hp" }] },
+  { slug: "car-huracan-ibz", category: "cars", destination: "ibiza", name: "Lamborghini Huracán", image: P("car-huracan-ibz"), location: "Delivered · Ibiza", carType: "Sports", transmission: "Automatic", badge: "HIGH DEMAND", stats: [{ label: "Seats", value: "2" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "640 hp" }] },
+  { slug: "car-defender-ibz", category: "cars", destination: "ibiza", name: "Land Rover Defender", image: P("car-defender-ibz"), location: "Delivered · Ibiza", carType: "SUV", transmission: "Automatic", stats: [{ label: "Seats", value: "5" }, { label: "Gearbox", value: "Auto" }, { label: "Drive", value: "4x4" }] },
+  { slug: "car-mini-myk", category: "cars", destination: "mykonos", name: "Mini Moke Cabrio", image: P("car-mini-myk"), location: "Delivered · Mykonos", carType: "Convertible", transmission: "Manual", badge: "SELLING FAST", stats: [{ label: "Seats", value: "4" }, { label: "Gearbox", value: "Manual" }, { label: "Roof", value: "Open" }] },
+  { slug: "car-gwagon-myk", category: "cars", destination: "mykonos", name: "Mercedes-AMG G 63", image: P("car-gwagon-myk"), location: "Delivered · Mykonos", carType: "SUV", transmission: "Automatic", stats: [{ label: "Seats", value: "5" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "585 hp" }] },
+  { slug: "car-ferrari-st", category: "cars", destination: "saint-tropez", name: "Ferrari Portofino", image: P("car-ferrari-st"), location: "Delivered · Saint Tropez", carType: "Convertible", transmission: "Automatic", badge: "SIGNATURE PICK", stats: [{ label: "Seats", value: "2+2" }, { label: "Gearbox", value: "Auto" }, { label: "Roof", value: "Retractable" }] },
+  { slug: "car-bentley-st", category: "cars", destination: "saint-tropez", name: "Bentley Continental GT", image: P("car-bentley-st"), location: "Delivered · Saint Tropez", carType: "Sedan", transmission: "Automatic", stats: [{ label: "Seats", value: "4" }, { label: "Gearbox", value: "Auto" }, { label: "Power", value: "650 hp" }] },
 
   // ---- BEACH CLUBS ----
-  { slug: "bc-blue-marlin", category: "beach-clubs", destination: "ibiza", name: "Blue Cala Club", image: U(IMG.beach), location: "Cala Jondal, Ibiza", area: "Bay", badge: "HIGH DEMAND", stats: [{ label: "Style", value: "Daybeds" }, { label: "Music", value: "Sunset DJ" }] },
-  { slug: "bc-experimental", category: "beach-clubs", destination: "ibiza", name: "Cap Beach", image: U(IMG.beach2), location: "Cap des Falcó, Ibiza", area: "Beachfront", stats: [{ label: "Style", value: "Boho" }, { label: "Table", value: "Front row" }] },
-  { slug: "bc-nammos", category: "beach-clubs", destination: "mykonos", name: "Psarou Sands", image: U(IMG.beach), location: "Psarou, Mykonos", area: "Beachfront", badge: "SIGNATURE PICK", stats: [{ label: "Style", value: "Iconic" }, { label: "Table", value: "Reserved" }] },
-  { slug: "bc-scorpios", category: "beach-clubs", destination: "mykonos", name: "Paraga Point", image: U(IMG.beach2), location: "Paraga, Mykonos", area: "Peninsula", stats: [{ label: "Style", value: "Sundown" }, { label: "Bed", value: "Front row" }] },
-  { slug: "bc-club55", category: "beach-clubs", destination: "saint-tropez", name: "Pampelonne 55", image: U(IMG.beach), location: "Pampelonne, Saint Tropez", area: "Beachfront", badge: "SELLING FAST", stats: [{ label: "Style", value: "Legendary" }, { label: "Lunch", value: "Reserved" }] },
-  { slug: "bc-nikki", category: "beach-clubs", destination: "saint-tropez", name: "Baie Beach", image: U(IMG.beach2), location: "Pampelonne, Saint Tropez", area: "Bay", stats: [{ label: "Style", value: "Party" }, { label: "Bed", value: "VIP" }] },
+  { slug: "bc-blue-marlin", category: "beach-clubs", destination: "ibiza", name: "Blue Cala Club", image: P("bc-blue-marlin"), location: "Cala Jondal, Ibiza", area: "Bay", badge: "HIGH DEMAND", stats: [{ label: "Style", value: "Daybeds" }, { label: "Music", value: "Sunset DJ" }] },
+  { slug: "bc-experimental", category: "beach-clubs", destination: "ibiza", name: "Cap Beach", image: P("bc-experimental"), location: "Cap des Falcó, Ibiza", area: "Beachfront", stats: [{ label: "Style", value: "Boho" }, { label: "Table", value: "Front row" }] },
+  { slug: "bc-nammos", category: "beach-clubs", destination: "mykonos", name: "Psarou Sands", image: P("bc-nammos"), location: "Psarou, Mykonos", area: "Beachfront", badge: "SIGNATURE PICK", stats: [{ label: "Style", value: "Iconic" }, { label: "Table", value: "Reserved" }] },
+  { slug: "bc-scorpios", category: "beach-clubs", destination: "mykonos", name: "Paraga Point", image: P("bc-scorpios"), location: "Paraga, Mykonos", area: "Peninsula", stats: [{ label: "Style", value: "Sundown" }, { label: "Bed", value: "Front row" }] },
+  { slug: "bc-club55", category: "beach-clubs", destination: "saint-tropez", name: "Pampelonne 55", image: P("bc-club55"), location: "Pampelonne, Saint Tropez", area: "Beachfront", badge: "SELLING FAST", stats: [{ label: "Style", value: "Legendary" }, { label: "Lunch", value: "Reserved" }] },
+  { slug: "bc-nikki", category: "beach-clubs", destination: "saint-tropez", name: "Baie Beach", image: P("bc-nikki"), location: "Pampelonne, Saint Tropez", area: "Bay", stats: [{ label: "Style", value: "Party" }, { label: "Bed", value: "VIP" }] },
 ];
 
 export function listingsByCategory(category: ListingCategory): Listing[] {
