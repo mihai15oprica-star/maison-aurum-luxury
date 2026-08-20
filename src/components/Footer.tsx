@@ -6,10 +6,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const label = "font-sans text-[10px] uppercase tracking-[0.35em] text-gold";
 
 // Quick links — Home + a couple of key routes (mirrors MADE's short footer nav).
+// "Destinations" used to sit here pointing at "/" as well, which is where the
+// destination selector lives — but two entries one line apart leading to the same
+// URL reads as a broken link, not as a design decision. Yachts takes the slot.
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Villas", href: "/villas" },
-  { label: "Destinations", href: "/" },
+  { label: "Yachts", href: "/yachts" },
 ];
 
 // TBD-5: social profile URLs live in contact.ts (SOCIALS).
