@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Jost, Playfair_Display } from "next/font/google";
+import { SITE_URL, IS_PRODUCTION_HOST } from "@/lib/site-url";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
@@ -41,17 +42,35 @@ const logo = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  // Every canonical, Open Graph URL and image reference in the app resolves against
+  // this. Without it Next emits relative OG URLs, which no social crawler accepts.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Baboó — Luxury Concierge · Ibiza, Mykonos, Saint Tropez",
     template: "%s · Baboó",
   },
   description:
     "Baboó is a luxury concierge curating private villas, yachts, cars, beach clubs, restaurants and bespoke experiences across Ibiza, Mykonos and Saint Tropez. Where daydreams become reality.",
+  applicationName: "Baboó",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Baboó — Luxury Concierge",
     description: "Where daydreams become reality. Ibiza · Mykonos · Saint Tropez.",
     type: "website",
+    siteName: "Baboó",
+    locale: "en_GB",
+    url: "/",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Baboó — Luxury Concierge",
+    description: "Where daydreams become reality. Ibiza · Mykonos · Saint Tropez.",
+  },
+  // Preview and local builds share the same 56 listings as production. Letting them
+  // be indexed would publish a dozen duplicates of every page under other hostnames.
+  robots: IS_PRODUCTION_HOST
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
